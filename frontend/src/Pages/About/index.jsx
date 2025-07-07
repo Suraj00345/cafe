@@ -209,7 +209,7 @@ const About = () => {
           {/* Header Section */}
           <div className="text-center justify-items-center mb-16">
             <h2 className="text-2xl md:text-3xl text-amber-400 mb-2">Our</h2>
-            <h1 className="text-4xl md:text-5xl font-bold text-black tracking-wide pb-5 ">
+            <h1 className="text-4xl md:text-5xl font-bold text-black tracking-tighter pb-5 ">
               LOCATIONS
             </h1>
             <img className="opacity-40 size-6" src={`${Flower2}`} alt="" />
