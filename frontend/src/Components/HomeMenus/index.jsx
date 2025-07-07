@@ -1,6 +1,6 @@
 import React from "react";
 import Food6 from "../../assets/food6.jpg";
-import Flower2  from "../../assets/flower3.png";
+import Flower2 from "../../assets/flower3.png";
 
 const HomeMenus = () => {
   return (
@@ -38,9 +38,9 @@ const HomeMenus = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto p-18 bg-white">
+      <div className="max-w-6xl mx-auto p-5 bg-white">
         {/* Decorative Element */}
-        <div className="flex justify-center mb-8">
+        <div className="flex justify-center m-7">
           <img className="opacity-20 h-7" src={`${Flower2}`} alt="" />
         </div>
 
@@ -55,11 +55,11 @@ const HomeMenus = () => {
               </h2>
 
               {/* New Item */}
-              <div className="border border-gray-900 rounded-lg p-4 mb-4">
-                <div className="bg-gray-900 text-white px-3 py-1 rounded text-sm font-medium mb-3 inline-block">
-                  New
+              <div className="max-w-lg mx-auto bg-white border-2 border-gray-900 pb-5 rounded-lg overflow-hidden">
+                <div className="bg-black text-white px-6 py-3">
+                  <h2 className="text-xl font-bold">New</h2>
                 </div>
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start pl-5 pt-2 pr-3">
                   <div className="flex-1">
                     <h3 className="font-bold text-lg mb-1">
                       Baked Potato Pizza
@@ -100,11 +100,11 @@ const HomeMenus = () => {
               </div>
 
               {/* Recommended Item */}
-              <div className=" border border-gray-900 text-gray-900 rounded-lg p-4 mt-4">
-                <div className="bg-gray-900 text-white px-3 py-1 rounded text-sm font-medium mb-3 inline-block border border-gray-700">
-                  Recommended
+              <div className="max-w-lg mx-auto bg-white border-2 border-gray-900 pb-4 rounded-lg overflow-hidden">
+                <div className="bg-black text-white px-6 py-3">
+                  <h2 className="text-xl font-bold"> Recommended</h2>
                 </div>
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start pl-6 pr-3">
                   <div className="flex-1">
                     <h3 className="font-bold text-lg mb-1">
                       Grilled Pork with Preserved Lemons
@@ -244,11 +244,11 @@ const HomeMenus = () => {
               </div>
 
               {/* Recommended Item */}
-              <div className="border border-gray-900 text-white rounded-lg p-4 my-4">
-                <div className="bg-gray-900 text-white px-3 py-1 rounded text-sm font-medium mb-3 inline-block border border-gray-700">
-                  Recommended
+              <div className="max-w-lg mx-auto bg-white border-2 border-gray-900 pb-4 rounded-lg overflow-hidden">
+                <div className="bg-black text-white px-6 py-3">
+                  <h2 className="font-bold text-xl">Recommended</h2>
                 </div>
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start pl-6 pr-3">
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 text-lg mb-1">
                       Grilled Pork with Preserved Lemons
@@ -262,7 +262,9 @@ const HomeMenus = () => {
                       className="flex-1 border-b border-dotted border-gray-400 mx-3"
                       style={{ minWidth: "80px" }}
                     ></div>
-                    <span className="font-semibold text-gray-900 text-lg">$22.0</span>
+                    <span className="font-semibold text-gray-900 text-lg">
+                      $22.0
+                    </span>
                   </div>
                 </div>
               </div>
@@ -289,11 +291,11 @@ const HomeMenus = () => {
               </div>
 
               {/* Recommended Item */}
-              <div className="border border-gray-900 text-white rounded-lg p-4 my-4">
-                <div className="bg-gray-900 text-white px-3 py-1 rounded text-sm font-medium mb-3 inline-block border border-gray-700">
-                  Recommended
+              <div className="max-w-lg mx-auto bg-white border-2 border-gray-900 pb-4 rounded-lg overflow-hidden">
+                <div className="bg-black text-white px-6 py-3">
+                  <h2 className="font-bold text-xl">Recommended</h2>
                 </div>
-                <div className="flex justify-between items-start">
+                <div className="flex justify-between items-start pl-6 pr-3">
                   <div className="flex-1">
                     <h3 className="font-bold text-gray-900 text-lg mb-1">
                       Apple Smoked Chicken with White Sauce
@@ -307,7 +309,9 @@ const HomeMenus = () => {
                       className="flex-1 border-b border-dotted border-gray-400 mx-3"
                       style={{ minWidth: "80px" }}
                     ></div>
-                    <span className="font-semibold text-gray-900 text-lg">$18.9</span>
+                    <span className="font-semibold text-gray-900 text-lg">
+                      $18.9
+                    </span>
                   </div>
                 </div>
               </div>

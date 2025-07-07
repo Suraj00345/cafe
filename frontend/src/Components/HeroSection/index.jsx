@@ -135,13 +135,37 @@ const HeroSection = () => {
           </div>
         </div>
         {/* grid images */}
-        <div className="grid grid-flow-col grid-rows-2 gap-4 m-10">
-          <img className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105" src={`${res1}`} alt="" />
-          <img className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105" src={`${res2}`} alt="" />
-          <img className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105" src={`${res3}`} alt="" />
-          <img className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105" src={`${res4}`} alt="" />
-          <img className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105" src={`${res5}`} alt="" />
-          <img className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105" src={`${res6}`} alt="" />
+        <div className="grid grid-flow-col-dense grid-rows-2 gap-4 m-10">
+          <img
+            className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105"
+            src={`${res1}`}
+            alt=""
+          />
+          <img
+            className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105"
+            src={`${res2}`}
+            alt=""
+          />
+          <img
+            className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105"
+            src={`${res3}`}
+            alt=""
+          />
+          <img
+            className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105"
+            src={`${res4}`}
+            alt=""
+          />
+          <img
+            className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105"
+            src={`${res5}`}
+            alt=""
+          />
+          <img
+            className="h-62 w-35 rounded-xl transition-transform duration-700 ease-in-out hover:scale-105"
+            src={`${res6}`}
+            alt=""
+          />
         </div>
       </div>
     </>
