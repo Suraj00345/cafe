@@ -52,7 +52,7 @@ const About = () => {
         </div>
 
         {/* Overlay for better text readability */}
-        <div className="absolute -top-5 left-0 right-0 z-20">
+        <div className="absolute  left-0 right-0 z-20">
           <Navbar />
         </div>
 
