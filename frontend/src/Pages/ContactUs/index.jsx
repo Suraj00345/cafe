@@ -1,10 +1,10 @@
 import React from "react";
-import Banner3 from "../../assets/banner3.jpg";
 import Navbar from "../../Components/Navbar";
 import GetInTouch from "../../Components/GetInTouch";
 import Footer from "../../Components/Footer";
-import Map from "../../Components/Map";
 import OurLocation from "../../Components/OurLocation";
+import Map from "../../Components/Map";
+import Banner3 from "../../assets/banner3.jpg";
 
 const ContactUs = () => {
   return (
