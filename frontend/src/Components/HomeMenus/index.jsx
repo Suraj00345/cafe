@@ -6,7 +6,7 @@ const HomeMenus = () => {
   return (
     <>
       {/* Menus */}
-      <div className="relative w-full h-96 overflow-hidden">
+      <div className="relative w-full h-106 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -38,7 +38,7 @@ const HomeMenus = () => {
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent"></div>
       </div>
 
-      <div className="max-w-6xl mx-auto p-5 bg-white">
+      <div className="max-w-6xl mx-auto p-5 pb-13 bg-white">
         {/* Decorative Element */}
         <div className="flex justify-center m-7">
           <img className="opacity-20 h-7" src={`${Flower2}`} alt="" />

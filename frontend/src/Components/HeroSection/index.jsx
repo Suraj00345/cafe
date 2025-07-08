@@ -22,9 +22,7 @@ const HeroSection = () => {
         className="w-full h-screen bg-cover bg-center"
         style={{ backgroundImage: `url(${Food1})` }}
       >
-       
           <Navbar/>
-        
         <div
           className="text-white text-center justify-items-center mt-30"
           style={{ fontFamily: "MyCustomFontLato" }}
