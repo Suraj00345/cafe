@@ -7,6 +7,14 @@ import Food6 from "../../assets/res2.jpg";
 import Flower2 from "../../assets/flower2.png";
 import Flower4 from "../../assets/flower4.png";
 import Footer from "../../Components/Footer";
+import Experiment from "../../Components/GridImages";
+import Food1 from "../../assets/res1.jpg";
+import res2 from "../../assets/res2.jpg";
+import res3 from "../../assets/res3.jpg";
+import Food7 from "../../assets/food7.jpg";
+import Food8 from "../../assets/food8.jpg";
+import Food9 from "../../assets/food9.jpg";
+import res7 from "../../assets/res7.jpg";
 
 const OurService = () => {
   return (
@@ -141,18 +149,27 @@ const OurService = () => {
         <div className="absolute top-0 right-40 h-104 w-100 rounded-md bg-neutral-950 opacity-90 z-10 text-amber-50 flex flex-col items-center ">
           <p className=" text-4xl pt-13 text-amber-600 italic">Event</p>
           <p className="text-5xl font-bold tracking-tight">CATERING</p>
-          <img className="items-center h-6 opacity-40 m-4" src={`${Flower4}`} alt="" />
+          <img
+            className="items-center h-6 opacity-40 m-4"
+            src={`${Flower4}`}
+            alt=""
+          />
           <p className="text-sm text-center pb-10">
             Sed ut perspiciatis unde omnis iste natus error sit <br />{" "}
             voluptatem accusantium doloremque laudantium, <br /> totam rem
             aperiam, eaque ipsa quae ab illo <br /> inventore veritatis et
             quasi.
           </p>
-          <a href="/about" className="underline underline-offset-4 text-amber-500 font-semibold tracking-wider">Contact Us</a>
+          <a
+            href="/about"
+            className="underline underline-offset-4 text-amber-500 font-semibold tracking-wider"
+          >
+            Contact Us
+          </a>
         </div>
       </div>
-
-      <Footer/>
+      <Experiment />
+      <Footer />
     </>
   );
 };

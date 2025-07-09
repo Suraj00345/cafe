@@ -5,39 +5,6 @@ import Flower2 from "../../assets/flower3.png";
 const HomeMenus = () => {
   return (
     <>
-      {/* Menus */}
-      <div className="relative w-full h-106 overflow-hidden">
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src={`${Food6}`}
-            alt="Delicious soup with garnish"
-            className="w-full h-full object-cover"
-          />
-        </div>
-
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0  bg-opacity-20"></div>
-
-        {/* Content Overlay */}
-        <div className="relative z-10 flex items-center justify-center h-full">
-          <div className="text-center text-white">
-            <h2
-              className="text-4xl md:text-5xl font-light mb-2 -ml-15 text-amber-400"
-              style={{ fontFamily: "MyCustomFontLato" }}
-            >
-              Our
-            </h2>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              MENUS
-            </h1>
-          </div>
-        </div>
-
-        {/* Subtle gradient overlay at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent"></div>
-      </div>
-
       <div className="max-w-6xl mx-auto p-5 pb-13 bg-white">
         {/* Decorative Element */}
         <div className="flex justify-center m-7">
@@ -146,13 +113,13 @@ const HomeMenus = () => {
             </div>
 
             {/* Sea Food Section */}
-            <div>
+            <div className="p-1">
               <h2 className="text-3xl font-bold mb-6 text-gray-900">
                 Sea Food
               </h2>
 
               {/* Regular Item */}
-              <div className="py-4 border-b border-gray-200">
+              <div className="py-4  border-b border-gray-200">
                 <div className="flex justify-between items-start">
                   <div className="flex-1">
                     <h3 className="font-bold text-lg mb-1">Spicy Crab Ramen</h3>
@@ -194,7 +161,7 @@ const HomeMenus = () => {
           </div>
 
           {/* Right Column */}
-          <div>
+          <div className="p-2">
             {/* Main Course Section */}
             <div>
               <h2 className="text-3xl font-bold mb-6 text-gray-900">

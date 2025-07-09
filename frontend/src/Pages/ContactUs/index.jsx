@@ -40,6 +40,7 @@ const ContactUs = () => {
           </div>
         </div>
       </div>
+      
       <div className="flex justify-evenly items-center pt-15 bg-gray-50">
         <div>
           <h1 className="font-bold text-4xl pb-5 tracking-tight">Contact</h1>
