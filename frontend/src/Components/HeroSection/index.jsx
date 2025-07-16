@@ -18,166 +18,205 @@ import "../../App.css";
 const HeroSection = () => {
   return (
     <>
-      <div
-        className="w-full h-screen bg-cover bg-center"
-        style={{ backgroundImage: `url(${Food1})` }}
-      >
-        <Navbar />
-        <div
-          className="text-white text-center justify-items-center mt-30"
-          style={{ fontFamily: "MyCustomFontLato" }}
-        >
-          <img src={`${Flower}`} alt="Flower Image" />
-          <p className="font-black text-[110px]">THE REX</p>
-          <br />
-          <p className="font-black text-[62px] ml-5 -mt-15 tracking-wider">
-            RESTAURANT
-          </p>
-          <br />
-          <p className="font-bold text-xl">
-            MAKING THE DELICIOUS PREMIUM FOOD SINCE 1992
-          </p>
-          <CircleArrowDown className="mt-5 animate-bounce" />
+      {/* Hero Section */}
+      <div className="relative w-full h-screen overflow-hidden">
+        {/* Background Image */}
+        <div className="absolute inset-0">
+          <img
+            src={`${Food1}`}
+            alt="Delicious soup with garnish"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Overlay for better text readability */}
+        <div className="absolute left-0 right-0 z-20">
+          <Navbar />
+        </div>
+
+        {/* Content Overlay */}
+        <div className="relative z-10 flex items-center justify-center h-full px-4">
+          <div
+            className="text-white text-center"
+            style={{ fontFamily: "MyCustomFontLato" }}
+          >
+            <img
+              src={`${Flower}`}
+              alt="Flower Image"
+              className="mx-auto mb-4  sm:w-20 sm:h-20 md:w-10 md:h-10"
+            />
+            <p className="font-black text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+              THE REX
+            </p>
+            <p className="font-black text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl mt-2 tracking-wider">
+              RESTAURANT
+            </p>
+            <p className="font-bold text-sm sm:text-base md:text-lg lg:text-xl mt-6 px-4 max-w-2xl mx-auto">
+              MAKING THE DELICIOUS PREMIUM FOOD SINCE 1992
+            </p>
+            <CircleArrowDown className="mt-6 md:mt-10 animate-bounce mx-auto w-8 h-8 md:w-10 md:h-10" />
+          </div>
         </div>
       </div>
 
-      <div className="flex justify-center items-center bg-amber-50 gap-5 ">
-        <div className="flex mt-20 gap-5">
-          <img
-            className="w-80 h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
-            src={`${Food4}`}
-            alt="Food Image"
-          />
-          <img
-            className="w-80 h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
-            src={`${Food5}`}
-            alt="Food Image"
-          />
-        </div>
-        {/* card */}
-        <div className="mb-10 relative right-10 ">
-          <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-10 text-center mt-30 ">
-            {/* Header */}
-            <div className="mb-8">
-              <h2
-                className="text-2xl font-light text-amber-600 mb-2"
-                style={{ fontFamily: "Kristi,curshive" }}
-              >
-                Discover
-              </h2>
-              <h1 className="text-6xl font-bold text-gray-900 tracking-tight">
-                OUR MENU
-              </h1>
+      {/* Discover Menus Section */}
+      <div className="bg-amber-50 px-4 sm:px-6 lg:px-8 py-10 lg:py-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+            {/* Images */}
+            <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 w-full lg:w-auto">
+              <img
+                className="w-full sm:w-64 md:w-72 lg:w-80 h-64 sm:h-80 md:h-96 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+                src={`${Food4}`}
+                alt="Food Image"
+              />
+              <img
+                className="w-full sm:w-64 md:w-72 lg:w-80 h-64 sm:h-80 md:h-96 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+                src={`${Food5}`}
+                alt="Food Image"
+              />
             </div>
 
-            {/* Decorative Element */}
-            <div className="mb-8">
-              <div className="flex justify-center">
-                <img className="opacity-20 h-7" src={`${Flower2}`} alt="" />
+            {/* Card */}
+            <div className="w-full max-w-md lg:relative lg:right-15">
+              <div className="bg-white rounded-lg shadow-lg p-12 sm:p-8 lg:p-10 text-center">
+                {/* Header */}
+                <div className="mb-6 lg:mb-8">
+                  <h2
+                    className="text-2xl sm:text-3xl lg:text-4xl font-light text-amber-600 mb-2"
+                    style={{ fontFamily: "Kristi,cursive" }}
+                  >
+                    Discover
+                  </h2>
+                  <h1 className="text-3xl sm:text-4xl lg:text-3xl xl:text-5xl font-bold text-gray-900 tracking-tight">
+                    OUR MENU
+                  </h1>
+                </div>
+
+                {/* Decorative Element */}
+                <div className="mb-6 lg:mb-8">
+                  <div className="flex justify-center">
+                    <img
+                      className="opacity-20 h-5 sm:h-6 lg:h-7"
+                      src={`${Flower2}`}
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <p className="text-gray-700 leading-relaxed font-medium text-sm sm:text-base mb-6 lg:mb-8">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi.
+                </p>
+
+                {/* Call to Action */}
+                <button className="text-amber-500 hover:text-amber-700 font-bold text-lg sm:text-xl lg:text-2xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200">
+                  Learn More
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Visit Restaurant Section */}
+      <div className="bg-amber-50 px-4 sm:px-6 lg:px-8 py-10 lg:py-20">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
+            {/* Card */}
+            <div className="w-full max-w-md lg:max-w-lg order-2 lg:order-1 lg:relative lg:left-15 z-50">
+              <div className="bg-white lg:h-130 rounded-lg lg:py-20  shadow-lg p-6 sm:p-8 lg:p-10 text-center">
+                {/* Header */}
+                <div className="mb-6 lg:mb-8">
+                  <h2
+                    className="text-2xl sm:text-3xl lg:text-4xl font-light text-amber-600 mb-2"
+                    style={{ fontFamily: "Kristi,cursive" }}
+                  >
+                    Visit Our
+                  </h2>
+                  <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight">
+                    RESTAURANT
+                  </h1>
+                </div>
+
+                {/* Decorative Element */}
+                <div className="mb-6 lg:mb-8">
+                  <div className="flex justify-center">
+                    <img
+                      className="opacity-20 h-5 sm:h-6 lg:h-7"
+                      src={`${Flower2}`}
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <p className="text-gray-700 leading-relaxed font-medium text-sm sm:text-base mb-6 lg:mb-8">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi.
+                </p>
+
+                {/* Call to Action */}
+                <a
+                  href="/contact_us"
+                  className="text-amber-500 hover:text-amber-700 font-bold text-lg sm:text-xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200 inline-block"
+                >
+                  Get Locations
+                </a>
               </div>
             </div>
 
-            {/* Content */}
+            {/* Grid Images */}
+            <div className="w-full lg:flex-1 order-1 lg:order-2">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+                {/* First Row */}
+                <div className="sm:col-span-2 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+                  <img
+                    className="h-48 sm:h-56 lg:h-66 w-full rounded-lg transition-transform duration-700 ease-in-out hover:scale-105 object-cover"
+                    src={`${res1}`}
+                    alt="Restaurant interior"
+                  />
+                  <img
+                    className="h-48 sm:h-56 lg:h-66 w-full sm:col-span-1 lg:col-span-2 rounded-lg transition-transform duration-700 ease-in-out hover:scale-105 object-cover"
+                    src={`${res2}`}
+                    alt="Restaurant interior"
+                  />
+                  <img
+                    className="h-48 sm:h-56 lg:h-66 w-full rounded-lg transition-transform duration-700 ease-in-out hover:scale-105 object-cover"
+                    src={`${res3}`}
+                    alt="Restaurant interior"
+                  />
+                </div>
 
-            <p className="text-gray-700 leading-relaxed font-medium text-base mb-8">
-              Sed ut perspiciatis unde omnis iste natus error <br /> sit
-              voluptatem accusantium doloremque <br /> laudantium, totam rem
-              aperiam, eaque ipsa quae <br /> ab illo inventore veritatis et
-              quasi.
-            </p>
-
-            {/* Call to Action */}
-
-            <button className="text-amber-500 hover:text-amber-700 font-bold text-2xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200 pb-15">
-              Learn More
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex justify-center bg-amber-50 pt-20">
-        <div className="mb-10 relative left-23 bottom-8 z-50">
-          <div className="max-w-md h-125 mx-auto bg-white rounded-lg shadow-lg p-10 text-center mt-30 ">
-            {/* Header */}
-            <div className="mb-8">
-              <h2
-                className="text-5xl font-light text-amber-600 mb-2"
-                style={{ fontFamily: "Kristi,curshive" }}
-              >
-                Visit Our
-              </h2>
-              <h1 className="text-6xl font-bold text-gray-900 tracking-tight">
-                RESTAURANT
-              </h1>
-            </div>
-
-            {/* Decorative Element */}
-            <div className="mb-8">
-              <div className="flex justify-center ">
-                <img className="opacity-20 h-7" src={`${Flower2}`} alt="" />
+                {/* Second Row */}
+                <div className="sm:col-span-2 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-4">
+                  <img
+                    className="h-48 sm:h-56 lg:h-60 w-full sm:col-span-1 lg:col-span-2 rounded-lg transition-transform duration-700 ease-in-out hover:scale-105 object-cover"
+                    src={`${res4}`}
+                    alt="Restaurant interior"
+                  />
+                  <img
+                    className="h-48 sm:h-56 lg:h-60 w-full rounded-lg transition-transform duration-700 ease-in-out hover:scale-105 object-cover"
+                    src={`${res5}`}
+                    alt="Restaurant interior"
+                  />
+                  <img
+                    className="h-48 sm:h-56 lg:h-60 w-full rounded-lg transition-transform duration-700 ease-in-out hover:scale-105 object-cover"
+                    src={`${res6}`}
+                    alt="Restaurant interior"
+                  />
+                </div>
               </div>
             </div>
-
-            {/* Content */}
-
-            <p className="text-gray-700 leading-relaxed font-medium text-base mb-8">
-              Sed ut perspiciatis unde omnis iste natus error <br /> sit
-              voluptatem accusantium doloremque <br /> laudantium, totam rem
-              aperiam, eaque ipsa quae <br /> ab illo inventore veritatis et
-              quasi.
-            </p>
-
-            {/* Call to Action */}
-
-            <a
-              href="/contact_us"
-              className="text-amber-500 hover:text-amber-700 font-bold text-xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200 pb-15"
-            >
-              Get Locations
-            </a>
-          </div>
-        </div>
-        {/* grid images */}
-        <div className="grid grid-cols-2 w-130 m-18">
-          <div className="col-span-2 p-3 grid grid-cols-4 gap-3">
-            <img
-              className="h-66 w-full rounded-lg transition-transform duration-700 ease-in-out hover:scale-105"
-              src={`${res1}`}
-              alt=""
-            />
-            <img
-              className="h-66 w-full col-span-2 grid-cols-1 rounded-lg transition-transform duration-700 ease-in-out hover:scale-105"
-              src={`${res2}`}
-              alt=""
-            />
-            <img
-              className="h-66 w-full rounded-lg transition-transform duration-700 ease-in-out hover:scale-105"
-              src={`${res3}`}
-              alt=""
-            />
-          </div>
-          <div className="col-span-2 grid grid-cols-4 gap-3">
-            <img
-              className="h-60 col-span-2 w-full rounded-lg transition-transform duration-700 ease-in-out hover:scale-105"
-              src={`${res4}`}
-              alt=""
-            />
-            <img
-              className="h-60 w-full rounded-lg transition-transform duration-700 ease-in-out hover:scale-105"
-              src={`${res5}`}
-              alt=""
-            />
-            <img
-              className="h-60 w-full rounded-lg transition-transform duration-700 ease-in-out hover:scale-105"
-              src={`${res6}`}
-              alt=""
-            />
           </div>
         </div>
       </div>
 
-      {/* Menus */}
-      <div className="relative w-full h-106 overflow-hidden">
+      {/* Menus Section */}
+      <div className="relative w-full h-64 sm:h-50 md:h-96 lg:h-[370px] overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -187,26 +226,22 @@ const HeroSection = () => {
           />
         </div>
 
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0  bg-opacity-20"></div>
-
         {/* Content Overlay */}
-        <div className="relative z-10 flex items-center justify-center h-full">
+        <div className="relative z-10 flex items-center justify-center h-full px-4">
           <div className="text-center text-white">
             <h2
-              className="text-4xl md:text-5xl font-light mb-2 -ml-15 text-amber-400"
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2 text-amber-400"
               style={{ fontFamily: "MyCustomFontLato" }}
             >
               Our
             </h2>
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
               MENUS
             </h1>
           </div>
         </div>
 
         {/* Subtle gradient overlay at bottom */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black/30 to-transparent"></div>
       </div>
     </>
   );

@@ -3,10 +3,7 @@ import Flower2 from "../../assets/flower2.png";
 import Food1 from "../../assets/res1.jpg";
 import res2 from "../../assets/res2.jpg";
 import res3 from "../../assets/res3.jpg";
-import Food3 from "../../assets/food3.jpg";
-import Food4 from "../../assets/food4.jpg";
 import Food5 from "../../assets/food5.jpg";
-import Food6 from "../../assets/food6.jpg";
 import Food7 from "../../assets/food7.jpg";
 import Food8 from "../../assets/food8.jpg";
 import Food9 from "../../assets/food9.jpg";
@@ -14,147 +11,183 @@ import res7 from "../../assets/res7.jpg";
 
 const GetInTouch = () => {
   return (
-    <div className=" min-h-100 bg-gray-50 p-20 pb-30">
-      <div className="max-w-8xl mx-auto ">
-        <div className="flex justify-start items-center">
+     <div className="min-h-screen lg:min-h-100 bg-gray-50 p-4 sm:p-8 lg:p-20 pb-8 sm:pb-16 lg:pb-30">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row justify-center items-center lg:items-start gap-8 lg:gap-16">
           {/* Left side - Image grid */}
-          <div className="grid grid-cols-2 gap-4 h-155 w-150 relative left-60">
-            {/* Bottom row - 3 images */}
-            <div className="col-span-2 grid grid-cols-4 gap-4">
-              {/* Person dining */}
-              <div className="bg-gray-600 rounded-md overflow-hidden">
+          <div className="w-full lg:w-auto order-2 lg:order-1">
+            {/* Mobile/Tablet: Simple 2x2 grid */}
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 lg:hidden">
+              <div className="bg-gray-600 rounded-md overflow-hidden aspect-square">
                 <img
-                  src={`${Food1}`}
+                  src={Food1}
                   alt="Person dining"
                   className="w-full h-full object-cover"
                 />
               </div>
-
-              {/* Pizza with vegetables */}
-              <div className="bg-red-100 rounded-md overflow-hidden">
+              <div className="bg-red-100 rounded-md overflow-hidden aspect-square">
                 <img
-                  src={`${res3}`}
+                  src={res3}
                   alt="Pizza with vegetables"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
               </div>
-
-              {/* Dessert */}
-              <div className="bg-blue-900 rounded-md overflow-hidden col-span-2">
+              <div className="bg-gray-700 rounded-md overflow-hidden aspect-square">
                 <img
-                  src={`${res7}`}
-                  alt="Dining set"
-                  className="w-full h-full object-cover"
+                  src={res2}
+                  alt="Fine dining room"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                />
+              </div>
+              <div className="bg-blue-100 rounded-md overflow-hidden aspect-square">
+                <img
+                  src={Food7}
+                  alt="Gourmet salad"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
               </div>
             </div>
 
-            {/* Bottom left - Fine dining room */}
-            <div className="bg-gray-700 rounded-md overflow-hidden">
-              <img
-                src={`${res2}`}
-                alt="Fine dining room"
-                className="w-full h-full object-cover"
-              />
-            </div>
+            {/* Desktop: Original complex grid */}
+            <div className="hidden lg:grid grid-cols-2 gap-4 h-155 w-150">
+              {/* Top row - 4 images */}
+              <div className="col-span-2 grid grid-cols-4 gap-4">
+                <div className="bg-gray-600 rounded-md overflow-hidden">
+                  <img
+                    src={Food1}
+                    alt="Person dining"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <div className="bg-red-100 rounded-md overflow-hidden">
+                  <img
+                    src={res3}
+                    alt="Pizza with vegetables"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <div className="bg-blue-900 rounded-md overflow-hidden col-span-2">
+                  <img
+                    src={res7}
+                    alt="Dining set"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+              </div>
 
-            {/* Bottom right - Gourmet salad */}
-            <div className="bg-blue-100 rounded-md overflow-hidden">
-              <img
-                src={`${Food7}`}
-                alt="Gourmet salad"
-                className="w-full h-full object-cover"
-              />
-            </div>
-
-            {/* Bottom row - 3 images */}
-            <div className="col-span-2 grid grid-cols-4 gap-4">
-              {/* Person dining */}
-              <div className="bg-gray-600 rounded-md overflow-hidden">
+              {/* Middle row - 2 images */}
+              <div className="bg-gray-700 rounded-md overflow-hidden">
                 <img
-                  src={`${Food9}`}
-                  alt="Person dining"
-                  className="w-full h-full object-cover"
+                  src={res2}
+                  alt="Fine dining room"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                />
+              </div>
+              <div className="bg-blue-100 rounded-md overflow-hidden">
+                <img
+                  src={Food7}
+                  alt="Gourmet salad"
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
                 />
               </div>
 
-              {/* Pizza with vegetables */}
-              <div className="bg-red-100 rounded-md overflow-hidden col-span-2">
-                <img src={`${Food8}`} className="w-full h-full object-cover" />
-              </div>
-
-              {/* Dessert */}
-              <div className="bg-blue-900 rounded-md overflow-hidden">
-                <img
-                  src={`${Food5}`}
-                  alt="Dessert"
-                  className="w-full h-full object-cover"
-                />
+              {/* Bottom row - 4 images */}
+              <div className="col-span-2 grid grid-cols-4 gap-4">
+                <div className="bg-gray-600 rounded-md overflow-hidden">
+                  <img
+                    src={Food9}
+                    alt="Person dining"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
+                <div className="bg-red-100 rounded-md overflow-hidden col-span-2">
+                  <img 
+                    src={Food8} 
+                    alt="Food dish"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110" 
+                  />
+                </div>
+                <div className="bg-blue-900 rounded-md overflow-hidden">
+                  <img
+                    src={Food5}
+                    alt="Dessert"
+                    className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                  />
+                </div>
               </div>
             </div>
           </div>
 
           {/* Right side - Contact form */}
-          <div className="bg-white rounded-md p-8 shadow-lg h-155 w-110 flex flex-col justify-center relative left-55 top-2">
-            <div className="text-center">
-              <h2 className="text-5xl font-light mb-2">
-                <span className="text-yellow-600  italic">get</span>
-              </h2>
-              <h1 className="text-5xl  font-bold text-gray-900 mb-4">
-                IN TOUCH
-              </h1>
-              <img
-                className="justify-self-center h-5 opacity-35"
-                src={`${Flower2}`}
-                alt=""
-              />
-            </div>
-            <div>
-              <div className="mb-3">
-                <label
-                  htmlFor="name"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Your name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  name="name"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-colors"
+          <div className="w-full max-w-md lg:max-w-none lg:w-110 order-1 lg:order-2">
+            <div className="bg-white rounded-md p-6 sm:p-8 shadow-lg lg:h-155 flex flex-col justify-center">
+              <div className="text-center mb-6 lg:mb-8">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-2">
+                  <span className="text-yellow-600 italic">get</span>
+                </h2>
+                <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                  IN TOUCH
+                </h1>
+                <img
+                  className="mx-auto h-4 lg:h-5 opacity-35"
+                  src={Flower2}
+                  alt="Decorative flower"
                 />
               </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium text-gray-700 mb-2"
+              
+              <div className="space-y-4 lg:space-y-3">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Your name
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-colors"
+                  />
+                </div>
+                
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Your email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-colors"
+                  />
+                </div>
+                
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
+                    Your message (optional)
+                  </label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    rows={4}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-colors resize-none"
+                  />
+                </div>
+                
+                <button 
+                  type="submit"
+                  className="w-full sm:w-auto bg-yellow-600 hover:bg-yellow-800 text-white font-medium py-4 px-8 rounded-lg transition-colors duration-200 text-lg"
                 >
-                  Your email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-colors"
-                />
+                  Submit
+                </button>
               </div>
-              <div className="mb-3">
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-gray-700 mb-2"
-                >
-                  Your message (optional)
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={5}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-yellow-500 focus:border-transparent outline-none transition-colors resize-none"
-                />
-              </div>
-              <button className=" bg-yellow-600 hover:bg-yellow-800 text-white font-medium py-4 px-6 rounded-lg transition-colors duration-200 text-lg">
-                Submit
-              </button>
             </div>
           </div>
         </div>

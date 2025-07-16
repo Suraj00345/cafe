@@ -26,7 +26,7 @@ const images = [
 
 export default function FoodGallery() {
   return (
-    <div className="bg-black p-4 h-183 -mb-62">
+    <div className="bg-black p-4 min-h-183 -mb-62">
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4">
         {images.map((img, index) => (
           <div key={index} className="overflow-hidden rounded-lg">

@@ -7,7 +7,7 @@ import Food6 from "../../assets/res2.jpg";
 import Flower2 from "../../assets/flower2.png";
 import Flower4 from "../../assets/flower4.png";
 import Footer from "../../Components/Footer";
-import Experiment from "../../Components/GridImages";
+import GridImages from "../../Components/GridImages";
 import Food1 from "../../assets/res1.jpg";
 import res2 from "../../assets/res2.jpg";
 import res3 from "../../assets/res3.jpg";
@@ -168,7 +168,7 @@ const OurService = () => {
           </a>
         </div>
       </div>
-      <Experiment />
+      <GridImages />
       <Footer />
     </>
   );
