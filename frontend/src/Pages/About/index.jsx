@@ -92,8 +92,8 @@ const About = () => {
             </div>
 
             {/* Card */}
-            <div className="w-full max-w-md lg:relative lg:right-15">
-              <div className="bg-white rounded-lg shadow-lg p-12 sm:p-8 lg:p-10 text-center">
+            <div className="w-full max-w-sm  lg:relative lg:right-15">
+              <div className="bg-white rounded-lg shadow-lg p-12 sm:p-8 lg:p-13 text-center">
                 {/* Header */}
                 <div className="mb-6 lg:mb-8">
                   <h2
@@ -137,7 +137,7 @@ const About = () => {
  {/* visit our restaurant */}
       <div className="flex flex-col lg:flex-row justify-center items-center bg-amber-50 gap-5 lg:gap-10 -mt-5 pb-10 lg:pb-18 px-4 lg:px-15">
       {/* Card */}
-      <div className="mb-10 lg:mb-0 lg:relative lg:left-15 lg:-top-4 z-50 w-full max-w-md lg:max-w-lg">
+      <div className="mb-10 lg:mb-0 lg:relative lg:left-15 lg:-top-4 z-50 w-full max-w-sm lg:max-w-sm lg:ml-20">
         <div className="mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8 lg:p-10 text-center mt-10 lg:mt-30">
           {/* Header */}
           <div className="mb-6 lg:mb-8">

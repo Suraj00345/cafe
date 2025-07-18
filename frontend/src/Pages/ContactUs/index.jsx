@@ -10,7 +10,7 @@ const ContactUs = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative w-full h-80 sm:h-96 md:h-110 lg:h-120 overflow-hidden">
+      <div className="relative w-full h-116 sm:h-96 md:h-110 lg:h-116 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img

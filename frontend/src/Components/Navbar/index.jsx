@@ -29,7 +29,8 @@ const Navbar = () => {
       {/* Desktop and Tablet Layout */}
       <div className="flex justify-between lg:justify-around items-center">
         {/* Logo */}
-        <a href="/" className="logo flex-shrink-0">
+        <a href="/" className="logo relative flex-shrink-0 border-amber-400  border-2 p-2 rounded-xl">
+          <div className="absolute inset-0 bg-gray-900 opacity-30 rounded-xl -z-30"></div>
           <h3 className="font-bold text-2xl lg:text-3xl -mb-5 lg:-mb-7">
             THE REX
           </h3>
@@ -75,13 +76,13 @@ const Navbar = () => {
               style={{ transformOrigin: "top" }}
             >
               <div
-                className={`transition-all duration-300 ease-in-out bg-black opacity-70  ${
+                className={`transition-all duration-300 ease-in-out bg-black opacity-90  ${
                   isServicesOpen ? "translate-y-0" : "-translate-y-4"
                 }`}
               >
                 <a
                   href="/menu/indian"
-                  className={`block px-4 py-3 text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 ${isActive(
+                  className={`block px-4 py-3 text-white hover:bg-gray-500 hover:text-orange-300 transition-colors duration-200 ${isActive(
                     "/menu/indian"
                   )}`}
                   onClick={() => setIsServicesOpen(false)}
@@ -90,7 +91,7 @@ const Navbar = () => {
                 </a>
                 <a
                   href="/menu/continental"
-                  className={`block px-4 py-3 text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 ${isActive(
+                  className={`block px-4 py-3 text-white hover:bg-gray-500 hover:text-orange-300 transition-colors duration-200 ${isActive(
                     "/menu/continental"
                   )}`}
                   onClick={() => setIsServicesOpen(false)}
@@ -99,7 +100,7 @@ const Navbar = () => {
                 </a>
                 <a
                   href="/menu/chinese"
-                  className={`block px-4 py-3 text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 ${isActive(
+                  className={`block px-4 py-3 text-white hover:bg-gray-500 hover:text-orange-300 transition-colors duration-200 ${isActive(
                     "/menu/chinese"
                   )}`}
                   onClick={() => setIsServicesOpen(false)}
@@ -284,7 +285,7 @@ const Navbar = () => {
                 href="/reservation"
                 className={`block w-full px-5 py-3 font-semibold ${isActive(
                   "/reservation"
-                )} text-center rounded-md border border-amber-400 hover:bg-amber-600 hover:border-amber-600 transition-all duration-200`}
+                )} text-center rounded-md border border-amber-400 hover:bg-amber-600 hover:text-white hover:border-amber-600 transition-all duration-200`}
                 onClick={closeMobileMenu}
               >
                 Reservation

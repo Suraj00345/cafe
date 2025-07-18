@@ -8,13 +8,6 @@ import Flower2 from "../../assets/flower2.png";
 import Flower4 from "../../assets/flower4.png";
 import Footer from "../../Components/Footer";
 import GridImages from "../../Components/GridImages";
-import Food1 from "../../assets/res1.jpg";
-import res2 from "../../assets/res2.jpg";
-import res3 from "../../assets/res3.jpg";
-import Food7 from "../../assets/food7.jpg";
-import Food8 from "../../assets/food8.jpg";
-import Food9 from "../../assets/food9.jpg";
-import res7 from "../../assets/res7.jpg";
 
 const OurService = () => {
   return (
@@ -51,85 +44,91 @@ const OurService = () => {
         </div>
       </div>
 
-      <div className="flex justify-center items-center bg-gray-50 gap-5 -mt-15 pb-18">
-        {/* card */}
-        <div className="mb-10 relative top-20 left-10 z-50 ">
-          <div className="max-w-md mx-auto bg-white rounded-md shadow-lg py-8 px-10 text-center mt-30 ">
+      <div className="flex flex-col lg:flex-row justify-center items-center bg-gray-50 gap-5 lg:gap-10 -mt-5 pb-10 lg:pb-18 px-4 lg:px-55">
+        {/* Card */}
+        <div className="mb-10 lg:mb-0 lg:relative lg:left-15 lg:-top-4 z-50 w-full max-w-md lg:max-w-sm">
+          <div className="mx-auto bg-white relative top-7 rounded-lg shadow-lg p-6 sm:p-8 lg:pb-5 text-center mt-10 lg:mt-30">
             {/* Header */}
-            <div className="mb-4">
+            <div className="mb-6 lg:mb-8">
               <h2
-                className="text-4xl font-light text-amber-600 mb-2"
-                style={{ fontFamily: "Kristi,curshive" }}
+                className="text-2xl sm:text-3xl lg:text-4xl font-light text-amber-600 mb-2"
+                style={{ fontFamily: "Kristi, cursive" }}
               >
                 Food
               </h2>
-              <h1 className="text-6xl font-bold text-gray-900 tracking-tighter">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tighter">
                 DELIVERY
               </h1>
             </div>
+
             {/* Decorative Element */}
-            <div className="mb-8">
+            <div className="mb-6 lg:mb-8">
               <div className="flex justify-center">
-                <img className="opacity-30 h-6" src={`${Flower2}`} alt="" />
+                <img className="opacity-20 h-5 lg:h-7" src={Flower2} alt="" />
               </div>
             </div>
+
             {/* Content */}
-            <p className="text-gray-700 leading-relaxed font-medium text-base mb-8">
-              Sed ut perspiciatis unde omnis iste <br /> natus error sit
-              voluptatem <br /> accusantium doloremque laudantium, <br /> totam
-              rem aperiam, eaque ipsa quae <br /> ab illo inventore veritatis et
-              quasi.
+            <p className="text-gray-700 leading-relaxed font-medium text-sm sm:text-base lg:text-base mb-6 lg:mb-8 px-2 lg:px-0">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi.
             </p>
+
             {/* Call to Action */}
-            <button className="text-amber-500 hover:text-amber-700 font-bold text-xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200 pb-15">
-              Get Locations
-            </button>
+            <a
+              href="/contact_us"
+              className="text-amber-500 hover:text-amber-700 font-bold text-lg sm:text-xl lg:text-xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200 inline-block pb-4 lg:pb-15"
+            >
+              Order Now
+            </a>
           </div>
         </div>
-        {/* img */}
-        <div className="flex mt-30 gap-5">
+
+        {/* Images */}
+        <div className="flex flex-col sm:flex-row mt-0 lg:mt-20 gap-3 sm:gap-5 w-full max-w-2xl lg:max-w-none">
           <img
-            className="w-70 h-110 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
-            src={`${Food4}`}
+            className="w-full sm:w-60 lg:w-80 h-60 sm:h-80 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+            src={Food4}
             alt="Food Image"
           />
           <img
-            className="w-70 h-110 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105"
-            src={`${Food5}`}
-            alt="Food Image"
+            className="w-full sm:w-60 lg:w-80 h-60 sm:h-80 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+            src={Food5}
+            alt="Restaurant Image"
           />
         </div>
       </div>
 
-      <div className="flex justify-evenly items-center pt-15 py-25 bg-gray-50">
-        <div className="text-center">
-          <h1 className="font-bold text-6xl">25</h1>
-          <p className="font-normal pt-2 text-xs tracking-widest">
-            YEARS OF EXPERIENCE
-          </p>
-        </div>
-        <div className="text-center">
-          <h1 className="font-bold text-6xl">12</h1>
-          <p className="font-normal pt-2 text-xs tracking-widest">
-            AWARDS WINNING CHEFS
-          </p>
-        </div>
-        <div className="text-center">
-          <h1 className="font-bold text-6xl">125</h1>
-          <p className="font-normal pt-2 text-xs tracking-widest">
-            DISHES & MENUS
-          </p>
-        </div>
-        <div className="text-center">
-          <h1 className="font-bold text-6xl">15</h1>
-          <p className="font-normal pt-2 text-xs tracking-widest">
-            RESTAURANT BRANCHES
-          </p>
-        </div>
+       <div className="flex flex-col sm:flex-row justify-evenly items-center pt-8 sm:pt-12 lg:pt-15 py-12 sm:py-16 lg:py-25 bg-gray-50 px-4 sm:px-6 lg:px-8">
+      <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
+        <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">25</h1>
+        <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
+          YEARS OF EXPERIENCE
+        </p>
       </div>
+      <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
+        <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">12</h1>
+        <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
+          AWARDS WINNING CHEFS
+        </p>
+      </div>
+      <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
+        <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">125</h1>
+        <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
+          DISHES & MENUS
+        </p>
+      </div>
+      <div className="text-center w-full sm:w-auto">
+        <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">15</h1>
+        <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
+          RESTAURANT BRANCHES
+        </p>
+      </div>
+    </div>
 
-      {/* Menus */}
-      <div className="relative w-full h-106 overflow-hidden">
+      {/* Events */}
+      <div className="relative w-full h-64 sm:mr-10 sm:h-80 md:h-96 lg:h-106 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
           <img
@@ -138,31 +137,50 @@ const OurService = () => {
             className="w-full h-full object-cover"
           />
         </div>
+        {/* Responsive content card */}
+        <div
+          className="absolute 
+    top-4 right-4 w-80 h-56
+    sm:top-6 sm:right-6 sm:w-96 sm:h-64
+    md:top-8 md:right-8 md:w-100 md:h-80
+    lg:top-0 lg:right-40 lg:w-100 lg:h-104
+    rounded-md bg-neutral-950 opacity-90 z-10 text-amber-50 
+    flex flex-col items-center justify-center px-4 py-4
+    sm:px-6 sm:py-6
+    md:px-8 md:py-8
+    lg:px-0 lg:py-0"
+        >
+          <p className="text-2xl sm:text-3xl md:text-4xl lg:pt-2 text-amber-600 italic">
+            Event
+          </p>
 
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0  bg-opacity-20"></div>
+          <p className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+            CATERING
+          </p>
 
-        {/* Content Overlay */}
-        <div className="relative z-10 flex items-center justify-center h-full"></div>
-
-        {/* Subtle gradient overlay at bottom */}
-        <div className="absolute top-0 right-40 h-104 w-100 rounded-md bg-neutral-950 opacity-90 z-10 text-amber-50 flex flex-col items-center ">
-          <p className=" text-4xl pt-13 text-amber-600 italic">Event</p>
-          <p className="text-5xl font-bold tracking-tight">CATERING</p>
           <img
-            className="items-center h-6 opacity-40 m-4"
+            className="items-center h-4 sm:h-5 md:h-6 opacity-40 m-2 sm:m-3 md:m-4"
             src={`${Flower4}`}
             alt=""
           />
-          <p className="text-sm text-center pb-10">
-            Sed ut perspiciatis unde omnis iste natus error sit <br />{" "}
-            voluptatem accusantium doloremque laudantium, <br /> totam rem
-            aperiam, eaque ipsa quae ab illo <br /> inventore veritatis et
-            quasi.
+
+          <p className="text-xs sm:text-sm text-center pb-4 sm:pb-6 md:pb-8 lg:pb-10 px-2">
+            <span className="hidden sm:inline">
+              Sed ut perspiciatis unde omnis iste natus error sit <br />
+              voluptatem accusantium doloremque laudantium, <br />
+              totam rem aperiam, eaque ipsa quae ab illo <br />
+              inventore veritatis et quasi.
+            </span>
+            <span className="sm:hidden">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+              accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+              quae ab illo inventore veritatis et quasi.
+            </span>
           </p>
+
           <a
             href="/about"
-            className="underline underline-offset-4 text-amber-500 font-semibold tracking-wider"
+            className="underline underline-offset-4 text-amber-500 font-semibold tracking-wider text-sm sm:text-base"
           >
             Contact Us
           </a>

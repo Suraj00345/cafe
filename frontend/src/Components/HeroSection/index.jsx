@@ -54,7 +54,7 @@ const HeroSection = () => {
             <p className="font-bold text-sm sm:text-base md:text-lg lg:text-xl mt-6 px-4 max-w-2xl mx-auto">
               MAKING THE DELICIOUS PREMIUM FOOD SINCE 1992
             </p>
-            <CircleArrowDown className="mt-6 md:mt-10 animate-bounce mx-auto w-8 h-8 md:w-10 md:h-10" />
+            <CircleArrowDown className="mt-6 md:mt-10 animate-bounce mx-auto  md:w-10 md:h-8" />
           </div>
         </div>
       </div>

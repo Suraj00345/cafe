@@ -1,49 +1,271 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from "react";
 
-const images = [
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/ffb72d82-8b6c-4c7d-acc8-6825f0316b4d.png", alt: "Italian dish in a black pan garnished with tomatoes and fresh basil leaves" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f118df9a-1455-4aa2-9306-b8259ad09e69.png", alt: "Fresh Greek salad with olives, feta cheese, cherry tomatoes and cucumber on a wooden board" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6271bb73-a420-4114-9a2f-954142c60d1d.png", alt: "Gourmet plated food with artistic sauce decoration on a gray ceramic plate" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/5641d93a-42c6-4d5b-baa2-ffe4510ee3df.png", alt: "Female chef in white uniform seasoning a dish in a fine dining kitchen" },
-  { src: "https://plus.unsplash.com/premium_photo-1673108852141-e8c3c22a4a22?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", alt: "Male chef with black uniform grating cheese over a meal in a restaurant kitchen" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9632c7a-1245-47a1-80a3-807bd87ae958.png", alt: "Blue ceramic plate with a fruit tart dessert garnished with fresh berries and cream" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/162c76c1-2c14-4a23-8c81-a45bb79d4c8d.png", alt: "Plates of gourmet burgers served with fries on a dark tabletop" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/64b84a46-a639-4fef-a31f-b917166b884a.png", alt: "Minimalist presentation of a slice of green tea cake on a teal ceramic plate" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a82328b8-c372-43aa-bb8e-cf0f2796de27.png", alt: "Outdoor picnic table set with plates, drinks and flower centerpiece with a nature background" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6359b579-5a45-4617-9b10-ad49ccd5a3b4.png", alt: "Woman eating a carefully plated meal sitting at a rustic wooden table indoors" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/9fbb1868-d30e-4204-9b4e-f745614e98cd.png", alt: "Blue plates with roasted chicken, sweet potatoes, and diced vegetables on stone slab" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f5be1f53-dbf4-4402-a2e6-77c50d68bb25.png", alt: "Close-up of hands holding fresh green spruce tree branch outdoors in winter" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e225d304-b1e5-4e76-9a64-0c57471a93fc.png", alt: "Bowl with mixed salad, tomato slices and greens in a modern style setting" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/05ac1496-340b-4b9a-8481-3f036c788def.png", alt: "Two blue plates with sophisticated salmon dishes sprinkled with herbs" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/c47226b6-39cf-419b-afc1-7185d5ef2e34.png", alt: "Vibrant salad with greens, nuts, and berries arranged artistically on white plate" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/4bbb543f-fb73-472b-91e3-c45f54d5fd31.png", alt: "Decorated garden dinner table set under hanging string lights and trees" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/422bb542-98d5-4cf4-9c72-9b66a21c6433.png", alt: "Smiling young chef wearing apron standing in a cozy restaurant kitchen" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/a9a233e5-bfda-4e30-9171-5cda635946ed.png", alt: "Elegant outdoor dining table with flower centerpiece and candles in glass holders" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/7603c50b-42c5-483d-a485-32cf28b42770.png", alt: "Dish plated with creamy white sauce garnished with pomegranate seeds and herbs" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/de77f39c-8a97-4173-892f-b02a0bd9c163.png", alt: "Modern upscale restaurant interior with stylish lighting and empty seating" },
-  { src: "https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/e02a09d7-28b5-4543-995f-83cbf6468927.png", alt: "Colorful grain bowl with fresh vegetables served in a blue ceramic bowl" }
-];
+import Banner3 from "../../assets/banner3.jpg";
+import Banner4 from "../../assets/banner4.jpg";
+import Food3 from "../../assets/food3.jpg";
+import Food6 from "../../assets/food6.jpg";
+import Food7 from "../../assets/food7.jpg";
+import Food8 from "../../assets/food8.jpg";
+import Food9 from "../../assets/food9.jpg";
+import Food11 from "../../assets/food11.jpg";
+import Food12 from "../../assets/food12.jpg";
+import Food13 from "../../assets/food13.jpg";
+import Food14 from "../../assets/food14.jpg";
+import Food15 from "../../assets/food15.jpg";
+import Food16 from "../../assets/food16.jpg";
+import Food17 from "../../assets/food17.jpg";
+import Profile1 from "../../assets/profile1.jpg";
+import Profile2 from "../../assets/profile2.jpg";
+import Res1 from "../../assets/res1.jpg";
+import Res3 from "../../assets/res3.jpg";
+import Res6 from "../../assets/res6.jpg";
+import Res7 from "../../assets/res7.jpg";
 
-export default function FoodGallery() {
+const LazyImage = ({ src, alt, className, index }) => {
+  const [isLoaded, setIsLoaded] = useState(false);
+  const [isInView, setIsInView] = useState(false);
+  const imgRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsInView(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '50px'
+      }
+    );
+
+    if (imgRef.current) {
+      observer.observe(imgRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  const handleLoad = () => {
+    setIsLoaded(true);
+  };
+
   return (
-    <div className="bg-black p-4 min-h-183 -mb-62">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4">
-        {images.map((img, index) => (
-          <div key={index} className="overflow-hidden rounded-lg">
-            <img
-              src={img.src}
-              alt={img.alt}
-              className="w-full h-35 object-cover transition-transform duration-300 hover:scale-110"
-              loading="lazy"
-              onError={e => {
-                e.currentTarget.onerror = null; 
-                e.currentTarget.src = 'https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/3637e29d-8957-4db7-9e35-a97935662ab9.png';
-              }}
-            />
-          </div>
-        ))}
+    <div 
+      ref={imgRef}
+      className={`relative overflow-hidden ${className}`}
+      style={{
+        animationDelay: `${index * 0.1}s`
+      }}
+    >
+      {/* Skeleton loader */}
+      <div 
+        className={`absolute inset-0 bg-gradient-to-r from-gray-700 via-gray-600 to-gray-700 bg-[length:200%_100%] rounded-lg transition-opacity duration-500 ${
+          isLoaded ? 'opacity-0' : 'opacity-100 animate-pulse'
+        }`}
+      />
+      
+      {/* Main image */}
+      <img
+        src={isInView ? src : ''}
+        alt={alt}
+        onLoad={handleLoad}
+        className={`w-full h-full object-cover rounded-lg shadow-md transition-all duration-700 ease-out ${
+          isInView && isLoaded 
+            ? 'opacity-100 transform translate-y-0 scale-100' 
+            : 'opacity-0 transform translate-y-8 scale-95'
+        }`}
+      />
+      
+      {/* Shimmer effect overlay */}
+      <div 
+        className={`absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 transition-transform duration-1000 ${
+          isInView && isLoaded 
+            ? 'translate-x-full' 
+            : '-translate-x-full'
+        }`}
+      />
+    </div>
+  );
+};
+
+const GridImages = () => {
+  return (
+    <div className="grid grid-rows-1 bg-gray-950 min-w-full">
+      {/* First Row */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 p-2 sm:p-4">
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-24 sm:h-28 lg:h-32"
+            src={Banner3}
+            alt="Banner 3"
+            index={0}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-2 lg:col-span-2">
+          <LazyImage
+            className="h-24 sm:h-28 lg:h-32"
+            src={Banner4}
+            alt="Banner 4"
+            index={1}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-24 sm:h-28 lg:h-32"
+            src={Food3}
+            alt="Food 3"
+            index={2}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-24 sm:h-28 lg:h-32"
+            src={Food6}
+            alt="Food 6"
+            index={3}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-24 sm:h-28 lg:h-32"
+            src={Food7}
+            alt="Food 7"
+            index={4}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-24 sm:h-28 lg:h-32"
+            src={Food8}
+            alt="Food 8"
+            index={5}
+          />
+        </div>
+        <div className="col-span-2 sm:col-span-2 lg:col-span-1">
+          <LazyImage
+            className="h-24 sm:h-28 lg:h-32"
+            src={Food9}
+            alt="Food 9"
+            index={6}
+          />
+        </div>
+      </div>
+
+      {/* Second Row */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 px-2 sm:px-4">
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-28 sm:h-32 lg:h-38"
+            src={Food11}
+            alt="Food 11"
+            index={7}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-28 sm:h-32 lg:h-38"
+            src={Food12}
+            alt="Food 12"
+            index={8}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-28 sm:h-32 lg:h-38"
+            src={Profile1}
+            alt="Profile 1"
+            index={9}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-2 lg:col-span-2">
+          <LazyImage
+            className="h-28 sm:h-32 lg:h-38"
+            src={Food13}
+            alt="Food 13"
+            index={10}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-28 sm:h-32 lg:h-38"
+            src={Profile2}
+            alt="Profile 2"
+            index={11}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-28 sm:h-32 lg:h-38"
+            src={Food16}
+            alt="Food 16"
+            index={12}
+          />
+        </div>
+        <div className="col-span-2 sm:col-span-2 lg:col-span-1">
+          <LazyImage
+            className="h-28 sm:h-32 lg:h-38"
+            src={Food17}
+            alt="Food 17"
+            index={13}
+          />
+        </div>
+      </div>
+
+      {/* Third Row */}
+      <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-2 sm:gap-3 p-2 sm:p-4">
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-32 sm:h-36 lg:h-42"
+            src={Res1}
+            alt="Restaurant 1"
+            index={14}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-32 sm:h-36 lg:h-42"
+            src={Res3}
+            alt="Restaurant 3"
+            index={15}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-2 lg:col-span-2">
+          <LazyImage
+            className="h-32 sm:h-36 lg:h-42"
+            src={Food14}
+            alt="Food 14"
+            index={16}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-2 lg:col-span-2">
+          <LazyImage
+            className="h-32 sm:h-36 lg:h-42"
+            src={Food15}
+            alt="Food 15"
+            index={17}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-32 sm:h-36 lg:h-42"
+            src={Res6}
+            alt="Restaurant 6"
+            index={18}
+          />
+        </div>
+        <div className="col-span-1 sm:col-span-1 lg:col-span-1">
+          <LazyImage
+            className="h-32 sm:h-36 lg:h-42"
+            src={Res7}
+            alt="Restaurant 7"
+            index={19}
+          />
+        </div>
       </div>
     </div>
   );
-}
+};
 
+export default GridImages;
