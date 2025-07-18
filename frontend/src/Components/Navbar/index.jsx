@@ -29,13 +29,13 @@ const Navbar = () => {
       {/* Desktop and Tablet Layout */}
       <div className="flex justify-between lg:justify-around items-center">
         {/* Logo */}
-        <a href="/" className="logo relative flex-shrink-0 border-amber-400  border-2 p-2 rounded-xl">
+        <a href="/" className="logo relative flex-shrink-0 border-amber-400 border-2 p-2 rounded-xl">
           <div className="absolute inset-0 bg-gray-900 opacity-30 rounded-xl -z-30"></div>
-          <h3 className="font-bold text-2xl lg:text-3xl -mb-5 lg:-mb-7">
+          <h3 className="font-bold  md:text-2xl lg:text-3xl -mb-5 lg:-mb-7">
             THE REX
           </h3>
           <br />
-          <h5 className="tracking-widest text-lg lg:text-xl font-semibold">
+          <h5 className="tracking-widest md:text-lg lg:text-xl font-semibold">
             Restaurant
           </h5>
         </a>
