@@ -87,7 +87,7 @@ const ReserveTableComponent = () => {
           {/* Booking Info */}
           <div className="mb-6">
             <p className="text-lg font-semibold mb-1 text-gray-900">
-              Book now at Mr User
+              Book now at Your Own Choice!
             </p>
             <p className="text-gray-700 mb-4">Mr User</p>
 
