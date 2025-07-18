@@ -27,7 +27,7 @@ const ReserveTableComponent = () => {
   return (
     <>
       {/* Hero Section */}
-      <div className="relative w-full h-64 sm:h-80 md:h-96 lg:h-120 overflow-hidden">
+      <div className="relative w-full h-116 sm:h-80 md:h-96 lg:h-116 overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0 bg-black-500">
           <img
