@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "../../Components/Navbar";
 import Banner4 from "../../assets/banner4.jpg";
 import Food5 from "../../assets/food5.jpg";
@@ -8,8 +8,38 @@ import Flower2 from "../../assets/flower2.png";
 import Flower4 from "../../assets/flower4.png";
 import Footer from "../../Components/Footer";
 import GridImages from "../../Components/GridImages";
+import CountUp from "../../Functions/CountUp";
 
 const OurService = () => {
+  const [isVisible, setIsVisible] = useState(false);
+  const cardRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          // Optional: Stop observing after animation triggers
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the card is visible
+        rootMargin: "0px 0px -50px 0px", // Trigger slightly before the card is fully in view
+      }
+    );
+
+    if (cardRef.current) {
+      observer.observe(cardRef.current);
+    }
+
+    return () => {
+      if (cardRef.current) {
+        observer.unobserve(cardRef.current);
+      }
+    };
+  }, []);
+
   return (
     <>
       <div className="relative w-full h-116 overflow-hidden ">
@@ -43,10 +73,15 @@ const OurService = () => {
           </div>
         </div>
       </div>
-
+      {/* food delivery */}
       <div className="flex flex-col lg:flex-row justify-center items-center bg-gray-50 gap-5 lg:gap-10 -mt-5 pb-10 lg:pb-18 px-4 lg:px-55">
-        {/* Card */}
-        <div className="mb-10 lg:mb-0 lg:relative lg:left-15 lg:-top-4 z-50 w-full max-w-md lg:max-w-sm">
+        {/* Animated Card */}
+        <div
+          ref={cardRef}
+          className={`mb-10 lg:mb-0 lg:relative lg:left-15 lg:-top-4 z-50 w-full max-w-md lg:max-w-sm transform transition-all duration-1000 ease-out ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
+          }`}
+        >
           <div className="mx-auto bg-white relative top-7 rounded-lg shadow-lg p-6 sm:p-8 lg:pb-5 text-center mt-10 lg:mt-30">
             {/* Header */}
             <div className="mb-6 lg:mb-8">
@@ -100,32 +135,68 @@ const OurService = () => {
         </div>
       </div>
 
-       <div className="flex flex-col sm:flex-row justify-evenly items-center pt-8 sm:pt-12 lg:pt-15 py-12 sm:py-16 lg:py-25 bg-gray-50 px-4 sm:px-6 lg:px-8">
-      <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
-        <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">25</h1>
-        <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
-          YEARS OF EXPERIENCE
-        </p>
+      <div className="flex flex-col sm:flex-row justify-evenly items-center pt-8 sm:pt-12 lg:pt-15 py-12 sm:py-16 lg:py-25 bg-gray-50 px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
+          <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+            <CountUp
+              from={0}
+              to={25}
+              separator=","
+              direction="up"
+              duration={1}
+              className="count-up-text"
+            />
+          </h1>
+          <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
+            YEARS OF EXPERIENCE
+          </p>
+        </div>
+        <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
+          <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+             <CountUp
+              from={0}
+              to={12}
+              separator=","
+              direction="up"
+              duration={1}
+              className="count-up-text"
+            />
+          </h1>
+          <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
+            AWARDS WINNING CHEFS
+          </p>
+        </div>
+        <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
+          <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+            <CountUp
+              from={0}
+              to={125}
+              separator=","
+              direction="up"
+              duration={1}
+              className="count-up-text"
+            />
+          </h1>
+          <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
+            DISHES & MENUS
+          </p>
+        </div>
+        <div className="text-center w-full sm:w-auto">
+          <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
+            <CountUp
+              from={0}
+              to={15}
+              separator=","
+              direction="up"
+              duration={1}
+              className="count-up-text"
+            />
+          </h1>
+          <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
+            RESTAURANT BRANCHES
+          </p>
+        </div>
       </div>
-      <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
-        <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">12</h1>
-        <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
-          AWARDS WINNING CHEFS
-        </p>
-      </div>
-      <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
-        <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">125</h1>
-        <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
-          DISHES & MENUS
-        </p>
-      </div>
-      <div className="text-center w-full sm:w-auto">
-        <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">15</h1>
-        <p className="font-normal pt-2 text-xs sm:text-sm lg:text-xs xl:text-sm tracking-widest max-w-32 sm:max-w-none mx-auto">
-          RESTAURANT BRANCHES
-        </p>
-      </div>
-    </div>
 
       {/* Events */}
       <div className="relative w-full h-64 sm:mr-10 sm:h-80 md:h-96 lg:h-106 overflow-hidden">

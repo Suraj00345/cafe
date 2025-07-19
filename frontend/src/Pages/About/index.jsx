@@ -1,5 +1,4 @@
-import React from "react";
-import { ArrowRight } from "lucide-react";
+import React, { useEffect, useRef, useState } from "react";
 import Footer from "../../Components/Footer";
 import Banner from "../../assets/banner1.jpg";
 import Banner2 from "../../assets/banner2.jpg";
@@ -40,6 +39,42 @@ const locations = [
 ];
 
 const About = () => {
+  const [isStoryVisible, setIsStoryVisible] = useState(false);
+  const [isVisitVisible, setIsVisitVisible] = useState(false);
+  const storyRef = useRef(null);
+  const visitRef = useRef(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach(entry => {
+        if (entry.target === storyRef.current && entry.isIntersecting) {
+          setIsStoryVisible(true);
+        }
+        if (entry.target === visitRef.current && entry.isIntersecting) {
+          setIsVisitVisible(true);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    if (storyRef.current) {
+      observer.observe(storyRef.current);
+    }
+    if (visitRef.current) {
+      observer.observe(visitRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       <div className="relative w-full h-116 overflow-hidden">
@@ -91,8 +126,15 @@ const About = () => {
               />
             </div>
 
-            {/* Card */}
-            <div className="w-full max-w-sm  lg:relative lg:right-15">
+            {/* Card with Animation */}
+            <div 
+              ref={storyRef}
+              className={`w-full max-w-sm lg:relative lg:right-15 transform transition-all duration-1000 ease-out ${
+                isStoryVisible 
+                  ? 'translate-y-0 opacity-100' 
+                  : 'translate-y-20 opacity-0'
+              }`}
+            >
               <div className="bg-white rounded-lg shadow-lg p-12 sm:p-8 lg:p-13 text-center">
                 {/* Header */}
                 <div className="mb-6 lg:mb-8">
@@ -134,92 +176,101 @@ const About = () => {
           </div>
         </div>
       </div>
- {/* visit our restaurant */}
+
+      {/* visit our restaurant */}
       <div className="flex flex-col lg:flex-row justify-center items-center bg-amber-50 gap-5 lg:gap-10 -mt-5 pb-10 lg:pb-18 px-4 lg:px-15">
-      {/* Card */}
-      <div className="mb-10 lg:mb-0 lg:relative lg:left-15 lg:-top-4 z-50 w-full max-w-sm lg:max-w-sm lg:ml-20">
-        <div className="mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8 lg:p-10 text-center mt-10 lg:mt-30">
-          {/* Header */}
-          <div className="mb-6 lg:mb-8">
-            <h2
-              className="text-2xl sm:text-3xl lg:text-4xl font-light text-amber-600 mb-2"
-              style={{ fontFamily: "Kristi, cursive" }}
+        {/* Card with Animation */}
+        <div 
+          ref={visitRef}
+          className={`mb-10 lg:mb-0 lg:relative lg:left-15 lg:-top-4 z-50 w-full max-w-sm lg:max-w-sm lg:ml-20 transform transition-all duration-1000 ease-out ${
+            isVisitVisible 
+              ? 'translate-y-0 opacity-100' 
+              : 'translate-y-20 opacity-0'
+          }`}
+        >
+          <div className="mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8 lg:p-10 text-center mt-10 lg:mt-30">
+            {/* Header */}
+            <div className="mb-6 lg:mb-8">
+              <h2
+                className="text-2xl sm:text-3xl lg:text-4xl font-light text-amber-600 mb-2"
+                style={{ fontFamily: "Kristi, cursive" }}
+              >
+                Visit Our
+              </h2>
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tighter">
+                RESTAURANT
+              </h1>
+            </div>
+            
+            {/* Decorative Element */}
+            <div className="mb-6 lg:mb-8">
+              <div className="flex justify-center">
+                <img className="opacity-20 h-5 lg:h-7" src={Flower2} alt="" />
+              </div>
+            </div>
+            
+            {/* Content */}
+            <p className="text-gray-700 leading-relaxed font-medium text-sm sm:text-base lg:text-base mb-6 lg:mb-8 px-2 lg:px-0">
+              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.
+            </p>
+            
+            {/* Call to Action */}
+            <a
+              href="/contact_us"
+              className="text-amber-500 hover:text-amber-700 font-bold text-lg sm:text-xl lg:text-xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200 inline-block pb-4 lg:pb-15"
             >
-              Visit Our
-            </h2>
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tighter">
-              RESTAURANT
-            </h1>
+              Get Locations
+            </a>
           </div>
-          
-          {/* Decorative Element */}
-          <div className="mb-6 lg:mb-8">
-            <div className="flex justify-center">
-              <img className="opacity-20 h-5 lg:h-7" src={Flower2} alt="" />
+        </div>
+        
+        {/* Images */}
+        <div className="flex flex-col sm:flex-row mt-0 lg:mt-20 gap-3 sm:gap-5 w-full max-w-2xl lg:max-w-none">
+          <img
+            className="w-full sm:w-60 lg:w-80 h-60 sm:h-80 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+            src={Food9}
+            alt="Food Image"
+          />
+          <img
+            className="w-full sm:w-60 lg:w-80 h-60 sm:h-80 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+            src={Res6}
+            alt="Restaurant Image"
+          />
+        </div>
+      </div>
+
+      {/* customer testimonials */}
+      <div
+        className="w-full h-96 sm:h-120 md:h-140 lg:h-145 bg-cover bg-center rounded-2xl relative overflow-hidden"
+        style={{ backgroundImage: `url(${Banner2})` }}
+      >
+        <div className="relative z-10 flex items-center justify-center h-full p-4 sm:p-8 md:p-12 lg:p-20">
+          <div className="text-center text-white max-w-4xl">
+            <h2
+              className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-light mb-1 sm:mb-2 text-amber-400"
+              style={{ fontFamily: "MyCustomFontLato, sans-serif" }}
+            >
+              Customer
+            </h2>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 md:mb-8 lg:mb-0">
+              TESTIMONIALS
+            </h1>
+            <p className="pt-4 sm:pt-8 md:pt-12 lg:pt-25 pb-3 sm:pb-4 md:pb-5 text-sm sm:text-base md:text-lg opacity-80 leading-relaxed px-2 sm:px-4 md:px-0">
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br /> 
+              Et dicta possimus, magni  voluptatum molestias explicabo <br /> voluptatibus
+              voluptatem tempora esse libero, cum recusandae.
+            </p>
+            <div className="flex items-center justify-center opacity-90 gap-2 sm:gap-3 mt-4 sm:mt-6">
+              <img
+                className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover"
+                src={profile1}
+                alt="Jessica Lee"
+              />
+              <p className="text-base sm:text-lg font-bold">Jessica Lee</p>
             </div>
           </div>
-          
-          {/* Content */}
-          <p className="text-gray-700 leading-relaxed font-medium text-sm sm:text-base lg:text-base mb-6 lg:mb-8 px-2 lg:px-0">
-            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.
-          </p>
-          
-          {/* Call to Action */}
-          <a
-            href="/contact_us"
-            className="text-amber-500 hover:text-amber-700 font-bold text-lg sm:text-xl lg:text-xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200 inline-block pb-4 lg:pb-15"
-          >
-            Get Locations
-          </a>
         </div>
       </div>
-      
-      {/* Images */}
-      <div className="flex flex-col sm:flex-row mt-0 lg:mt-20 gap-3 sm:gap-5 w-full max-w-2xl lg:max-w-none">
-        <img
-          className="w-full sm:w-60 lg:w-80 h-60 sm:h-80 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
-          src={Food9}
-          alt="Food Image"
-        />
-        <img
-          className="w-full sm:w-60 lg:w-80 h-60 sm:h-80 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
-          src={Res6}
-          alt="Restaurant Image"
-        />
-      </div>
-    </div>
- {/* coustomer testimonials */}
-       <div
-      className="w-full h-96 sm:h-120 md:h-140 lg:h-150 bg-cover bg-center rounded-2xl relative overflow-hidden"
-      style={{ backgroundImage: `url(${Banner2})` }}
-    >
-      <div className="relative z-10 flex items-center justify-center h-full p-4 sm:p-8 md:p-12 lg:p-20">
-        <div className="text-center text-white max-w-4xl">
-          <h2
-            className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-light mb-1 sm:mb-2 text-amber-400"
-            style={{ fontFamily: "MyCustomFontLato, sans-serif" }}
-          >
-            Customer
-          </h2>
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold tracking-tight mb-4 sm:mb-6 md:mb-8 lg:mb-0">
-            TESTIMONIALS
-          </h1>
-          <p className="pt-4 sm:pt-8 md:pt-12 lg:pt-25 pb-3 sm:pb-4 md:pb-5 text-sm sm:text-base md:text-lg opacity-80 leading-relaxed px-2 sm:px-4 md:px-0">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Et dicta
-            possimus, magni voluptatum molestias explicabo voluptatibus
-            voluptatem tempora esse libero, cum recusandae.
-          </p>
-          <div className="flex items-center justify-center opacity-90 gap-2 sm:gap-3 mt-4 sm:mt-6">
-            <img
-              className="h-8 w-8 sm:h-10 sm:w-10 rounded-full object-cover"
-              src={profile1}
-              alt="Jessica Lee"
-            />
-            <p className="text-base sm:text-lg font-bold">Jessica Lee</p>
-          </div>
-        </div>
-      </div>
-    </div>
 
       <OurLocation />
       <Footer />

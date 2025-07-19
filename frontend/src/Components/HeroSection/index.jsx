@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Food1 from "../../assets/food1.jpg";
 import Food4 from "../../assets/food4.jpg";
 import Food5 from "../../assets/food5.jpg";
@@ -14,19 +14,55 @@ import res6 from "../../assets/res6.jpg";
 import Navbar from "../Navbar";
 import { CircleArrowDown } from "lucide-react";
 import "../../App.css";
+import VerticalCarousel from "../../Functions/Carosel";
 
 const HeroSection = () => {
+  const [isDiscoverVisible, setIsDiscoverVisible] = useState(false);
+  const [isVisitVisible, setIsVisitVisible] = useState(false);
+  const discoverRef = useRef(null);
+  const visitRef = useRef(null);
+
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.target === discoverRef.current && entry.isIntersecting) {
+          setIsDiscoverVisible(true);
+        }
+        if (entry.target === visitRef.current && entry.isIntersecting) {
+          setIsVisitVisible(true);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
+
+    if (discoverRef.current) {
+      observer.observe(discoverRef.current);
+    }
+    if (visitRef.current) {
+      observer.observe(visitRef.current);
+    }
+
+    return () => {
+      observer.disconnect();
+    };
+  }, []);
+
   return (
     <>
       {/* Hero Section */}
       <div className="relative w-full h-screen overflow-hidden">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <img
-            src={`${Food1}`}
-            alt="Delicious soup with garnish"
-            className="w-full h-full object-cover"
-          />
+          <VerticalCarousel />
         </div>
 
         {/* Overlay for better text readability */}
@@ -52,7 +88,7 @@ const HeroSection = () => {
               RESTAURANT
             </p>
             <p className="font-bold text-sm sm:text-base md:text-lg lg:text-xl mt-6 px-4 max-w-2xl mx-auto">
-              MAKING THE DELICIOUS PREMIUM FOOD SINCE 1992
+              SERVING THE DELICIOUS PREMIUM FOOD SINCE 1992
             </p>
             <CircleArrowDown className="mt-6 md:mt-10 animate-bounce mx-auto  md:w-10 md:h-8" />
           </div>
@@ -77,8 +113,15 @@ const HeroSection = () => {
               />
             </div>
 
-            {/* Card */}
-            <div className="w-full max-w-md lg:relative lg:right-15">
+            {/* Card with Animation */}
+            <div
+              ref={discoverRef}
+              className={`w-full max-w-sm lg:relative lg:right-15 transform transition-all duration-1000 ease-out ${
+                isDiscoverVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-20 opacity-0"
+              }`}
+            >
               <div className="bg-white rounded-lg shadow-lg p-12 sm:p-8 lg:p-10 text-center">
                 {/* Header */}
                 <div className="mb-6 lg:mb-8">
@@ -125,8 +168,15 @@ const HeroSection = () => {
       <div className="bg-amber-50 px-4 sm:px-6 lg:px-8 py-10 lg:py-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center lg:items-start gap-8 lg:gap-12">
-            {/* Card */}
-            <div className="w-full max-w-md lg:max-w-lg order-2 lg:order-1 lg:relative lg:left-15 z-50">
+            {/* Card with Animation */}
+            <div
+              ref={visitRef}
+              className={`w-full max-w-sm lg:max-w-md order-2 lg:order-1 lg:relative lg:left-15 z-50 transform transition-all duration-1000 ease-out ${
+                isVisitVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-20 opacity-0"
+              }`}
+            >
               <div className="bg-white lg:h-130 rounded-lg lg:py-20  shadow-lg p-6 sm:p-8 lg:p-10 text-center">
                 {/* Header */}
                 <div className="mb-6 lg:mb-8">
@@ -240,8 +290,6 @@ const HeroSection = () => {
             </h1>
           </div>
         </div>
-
-        {/* Subtle gradient overlay at bottom */}
       </div>
     </>
   );

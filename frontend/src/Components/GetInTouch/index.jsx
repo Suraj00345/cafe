@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Flower2 from "../../assets/flower2.png";
 import Food1 from "../../assets/res1.jpg";
 import res2 from "../../assets/res2.jpg";
@@ -10,6 +10,35 @@ import Food9 from "../../assets/food9.jpg";
 import res7 from "../../assets/res7.jpg";
 
 const GetInTouch = () => {
+  const [isFormVisible, setIsFormVisible] = useState(false);
+  const formRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsFormVisible(true);
+          // Optional: Stop observing after animation triggers
+          observer.unobserve(entry.target);
+        }
+      },
+      {
+        threshold: 0.3, // Trigger when 30% of the form is visible
+        rootMargin: '0px 0px -50px 0px' // Trigger slightly before the form is fully in view
+      }
+    );
+
+    if (formRef.current) {
+      observer.observe(formRef.current);
+    }
+
+    return () => {
+      if (formRef.current) {
+        observer.unobserve(formRef.current);
+      }
+    };
+  }, []);
+
   return (
      <div className="min-h-screen lg:min-h-100 bg-gray-50 p-4 sm:p-8 lg:p-20 pb-8 sm:pb-16 lg:pb-30">
       <div className="max-w-7xl mx-auto">
@@ -118,8 +147,15 @@ const GetInTouch = () => {
             </div>
           </div>
 
-          {/* Right side - Contact form */}
-          <div className="w-full max-w-md lg:max-w-none lg:w-110 order-1 lg:order-2">
+          {/* Right side - Animated Contact form */}
+          <div 
+            ref={formRef}
+            className={`w-full max-w-md lg:max-w-none lg:w-110 order-1 lg:order-2 transform transition-all duration-1000 ease-out ${
+              isFormVisible 
+                ? 'translate-y-0 opacity-100' 
+                : 'translate-y-16 opacity-0'
+            }`}
+          >
             <div className="bg-white rounded-md p-6 sm:p-8 shadow-lg lg:h-155 flex flex-col justify-center">
               <div className="text-center mb-6 lg:mb-8">
                 <h2 className="text-3xl sm:text-4xl lg:text-5xl font-light mb-2">

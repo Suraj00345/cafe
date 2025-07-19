@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Food1 from "../assets/food1.jpg";
-import Food2 from "../assets/food2.jpg";
+import Food2 from "../assets/food14.jpg";
 import Food3 from "../assets/food3.jpg";
-import Navbar from "../Components/Navbar";
 
 const VerticalCarousel = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -31,7 +30,7 @@ const VerticalCarousel = () => {
 
     const interval = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 3000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [isPlaying, slides.length]);
@@ -60,25 +59,24 @@ const VerticalCarousel = () => {
 
   return (
     <>
-    <div className="relative w-full h-screen overflow-hidden ">
-      {/* Carousel Container */}
-      <div
-        className="flex flex-col w-full transition-transform duration-700 ease-in-out"
-        style={{
-          height: `${slides.length * 100}vh`,
-          transform: `translateY(-${currentSlide * 100}vh)`,
-        }}
-      >
-        {slides.map((slide, index) => (
-          <div
-            key={slide.id}
-            className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
-            style={{ backgroundImage: `url(${slide.image})` }}
-          >
-          </div>
-        ))}
+      <div className="relative w-full h-screen overflow-hidden ">
+        {/* Carousel Container */}
+        <div
+          className="flex flex-col w-full transition-transform duration-700 ease-in-out"
+          style={{
+            height: `${slides.length * 100}vh`,
+            transform: `translateY(-${currentSlide * 100}vh)`,
+          }}
+        >
+          {slides.map((slide, index) => (
+            <div
+              key={slide.id}
+              className="relative w-full h-screen bg-cover bg-center bg-no-repeat"
+              style={{ backgroundImage: `url(${slide.image})` }}
+            ></div>
+          ))}
+        </div>
       </div>
-    </div>
     </>
   );
 };

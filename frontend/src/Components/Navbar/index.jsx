@@ -6,13 +6,17 @@ const Navbar = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   
-  // Mock location for demo
-   const location = useLocation();
-   console.log(location);
-   
+  const location = useLocation();
+  console.log(location);
 
   const isActive = (path) =>
     location.pathname === path ? "text-amber-400" : "";
+
+  // Check if any menu item is active
+  const isMenuActive = () => {
+    const menuPaths = ["/menu/indian", "/menu/continental", "/menu/chinese"];
+    return menuPaths.includes(location.pathname);
+  };
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -25,13 +29,13 @@ const Navbar = () => {
   };
 
   return (
-    <nav className="pt-6 lg:pt-10 px-4 lg:px-8 text-white relative  min-h-screen">
+    <nav className="pt-6 lg:pt-10 px-4 lg:px-8 text-white relative min-h-screen">
       {/* Desktop and Tablet Layout */}
       <div className="flex justify-between lg:justify-around items-center">
         {/* Logo */}
-        <a href="/" className="logo relative flex-shrink-0 border-amber-400 border-2 p-2 rounded-xl">
+        <a href="/" className="logo relative flex-shrink-0 border-amber-400 border-2 p-1 lg:p-3 rounded-xl">
           <div className="absolute inset-0 bg-gray-900 opacity-30 rounded-xl -z-30"></div>
-          <h3 className="font-bold  md:text-2xl lg:text-3xl -mb-5 lg:-mb-7">
+          <h3 className="font-bold text-xl  md:text-2xl lg:text-3xl -mb-5 lg:-mb-7">
             THE REX
           </h3>
           <br />
@@ -54,7 +58,9 @@ const Navbar = () => {
           {/* Services Dropdown with Smooth Drawer Animation */}
           <div className="relative">
             <button
-              className={`m-5 font-semibold flex items-center hover:text-orange-300 transition-colors duration-200`}
+              className={`m-5 font-semibold flex items-center hover:text-orange-300 transition-colors duration-200 ${
+                isMenuActive() ? "text-amber-400" : ""
+              }`}
               onClick={() => setIsServicesOpen(!isServicesOpen)}
             >
               Menus
@@ -194,7 +200,9 @@ const Navbar = () => {
               href="/"
               className={`block px-6 py-4 font-semibold ${isActive(
                 "/"
-              )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300`}
+              )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
+                isActive("/") ? "border-amber-400" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               Home
@@ -203,7 +211,9 @@ const Navbar = () => {
             {/* Mobile Services Dropdown in Drawer */}
             <div className="relative">
               <button
-                className={`w-full text-left px-6 py-4 font-semibold flex items-center justify-between hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300`}
+                className={`w-full text-left px-6 py-4 font-semibold flex items-center justify-between hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
+                  isMenuActive() ? "text-amber-400 border-amber-400" : ""
+                }`}
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
               >
                 Menus
@@ -222,27 +232,27 @@ const Navbar = () => {
                 <div className="bg-gray-800 bg-opacity-30">
                   <a
                     href="/menu/indian"
-                    className={`block px-10 py-3 text-sm text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 ${isActive(
-                      "/menu/indian"
-                    )} border-l-4 border-transparent hover:border-orange-300`}
+                    className={`block px-10 py-3 text-sm text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
+                      isActive("/menu/indian") ? "text-amber-400 border-amber-400" : ""
+                    }`}
                     onClick={closeMobileMenu}
                   >
                     Indian Delicacy
                   </a>
                   <a
                     href="/menu/continental"
-                    className={`block px-10 py-3 text-sm text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 ${isActive(
-                      "/menu/continental"
-                    )} border-l-4 border-transparent hover:border-orange-300`}
+                    className={`block px-10 py-3 text-sm text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
+                      isActive("/menu/continental") ? "text-amber-400 border-amber-400" : ""
+                    }`}
                     onClick={closeMobileMenu}
                   >
                     Continental Cuisine
                   </a>
                   <a
                     href="/menu/chinese"
-                    className={`block px-10 py-3 text-sm text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 ${isActive(
-                      "/menu/chinese"
-                    )} border-l-4 border-transparent hover:border-orange-300`}
+                    className={`block px-10 py-3 text-sm text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
+                      isActive("/menu/chinese") ? "text-amber-400 border-amber-400" : ""
+                    }`}
                     onClick={closeMobileMenu}
                   >
                     Chinese Cuisine
@@ -255,7 +265,9 @@ const Navbar = () => {
               href="/about"
               className={`block px-6 py-4 font-semibold ${isActive(
                 "/about"
-              )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300`}
+              )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
+                isActive("/about") ? "border-amber-400" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               About Us
@@ -264,7 +276,9 @@ const Navbar = () => {
               href="/our_service"
               className={`block px-6 py-4 font-semibold ${isActive(
                 "/our_service"
-              )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300`}
+              )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
+                isActive("/our_service") ? "border-amber-400" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               Our Service
@@ -273,7 +287,9 @@ const Navbar = () => {
               href="/contact_us"
               className={`block px-6 py-4 font-semibold ${isActive(
                 "/contact_us"
-              )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300`}
+              )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
+                isActive("/contact_us") ? "border-amber-400" : ""
+              }`}
               onClick={closeMobileMenu}
             >
               Contact Us

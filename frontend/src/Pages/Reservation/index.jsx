@@ -78,7 +78,7 @@ const ReserveTableComponent = () => {
         <div className="shadow-lg shadow-gray-500/50 w-full lg:w-1/2 lg:pl-8 xl:pl-12 flex flex-col justify-center bg-white rounded-xl p-5">
           {/* Heading */}
           <div className="mb-2 justify-items-center">
-            <h2 className="text-2xl text-center sm:text-3xl lg:text-4xl font-bold mb-6 text-amber-600 underline">
+            <h2 className="text-2xl text-center sm:text-3xl lg:text-4xl font-bold mb-6 text-amber-600 underline animate-pulse">
               Reserve a Table
             </h2>
             <img className="h-8" src={`${Flower}`} alt="" />
