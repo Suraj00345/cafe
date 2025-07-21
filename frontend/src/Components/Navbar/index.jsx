@@ -270,7 +270,7 @@ const Navbar = ({ isScrolled }) => {
               className={`block px-6 py-4 font-semibold ${isActive(
                 "/"
               )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
-                isActive("/") ? "border-amber-400" : ""
+                isActive("/") ? "text-amber-400" : "text-white"
               }`}
               onClick={closeMobileMenu}
             >
@@ -281,7 +281,9 @@ const Navbar = ({ isScrolled }) => {
             <div className="relative">
               <button
                 className={`w-full text-left px-6 py-4 font-semibold flex items-center justify-between hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
-                  isMenuActive() ? "text-amber-400 border-amber-400" : ""
+                  isMenuActive()
+                    ? "text-amber-400 border-amber-400"
+                    : "text-white"
                 }`}
                 onClick={() => setIsServicesOpen(!isServicesOpen)}
               >
@@ -304,7 +306,7 @@ const Navbar = ({ isScrolled }) => {
                     className={`block px-10 py-3 text-sm text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
                       isActive("/menu/indian")
                         ? "text-amber-400 border-amber-400"
-                        : ""
+                        : "text-white"
                     }`}
                     onClick={closeMobileMenu}
                   >
@@ -315,7 +317,7 @@ const Navbar = ({ isScrolled }) => {
                     className={`block px-10 py-3 text-sm text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
                       isActive("/menu/continental")
                         ? "text-amber-400 border-amber-400"
-                        : ""
+                        : "text-white"
                     }`}
                     onClick={closeMobileMenu}
                   >
@@ -326,7 +328,7 @@ const Navbar = ({ isScrolled }) => {
                     className={`block px-10 py-3 text-sm text-white hover:bg-gray-600 hover:text-orange-300 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
                       isActive("/menu/chinese")
                         ? "text-amber-400 border-amber-400"
-                        : ""
+                        : "text-white"
                     }`}
                     onClick={closeMobileMenu}
                   >
@@ -341,7 +343,7 @@ const Navbar = ({ isScrolled }) => {
               className={`block px-6 py-4 font-semibold ${isActive(
                 "/about"
               )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
-                isActive("/about") ? "border-amber-400" : ""
+                isActive("/about") ? "border-amber-400" : "text-white"
               }`}
               onClick={closeMobileMenu}
             >
@@ -352,7 +354,7 @@ const Navbar = ({ isScrolled }) => {
               className={`block px-6 py-4 font-semibold ${isActive(
                 "/our_service"
               )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
-                isActive("/our_service") ? "border-amber-400" : ""
+                isActive("/our_service") ? "border-amber-400" : "text-white"
               }`}
               onClick={closeMobileMenu}
             >
@@ -363,7 +365,7 @@ const Navbar = ({ isScrolled }) => {
               className={`block px-6 py-4 font-semibold ${isActive(
                 "/contact_us"
               )} hover:text-orange-300 hover:bg-gray-800 transition-colors duration-200 border-l-4 border-transparent hover:border-orange-300 ${
-                isActive("/contact_us") ? "border-amber-400" : ""
+                isActive("/contact_us") ? "border-amber-400" : "text-white"
               }`}
               onClick={closeMobileMenu}
             >
@@ -376,7 +378,10 @@ const Navbar = ({ isScrolled }) => {
                 href="/reservation"
                 className={`block w-full px-5 py-3 font-semibold ${isActive(
                   "/reservation"
-                )} text-center rounded-md border border-amber-400 hover:bg-amber-600 hover:text-white hover:border-amber-600 transition-all duration-200`}
+                )}
+                text-center rounded-md border hover:bg-amber-600 hover:text-white hover:border-amber-600 transition-all duration-200 
+                ${isActive("/reservation") ? "border-amber-400" : "text-white"}
+                `}
                 onClick={closeMobileMenu}
               >
                 Reservation
