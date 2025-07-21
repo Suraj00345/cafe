@@ -65,7 +65,7 @@ const Continental = () => {
               Check out
             </h2>
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
-              OUR CONTINENTAL CUISINE
+              OUR CONTINENTAL BOWL
             </h1>
           </div>
         </div>

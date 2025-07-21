@@ -14,10 +14,10 @@ const HomeMenus = () => {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Left Column */}
-          <div className="space-y-8">
+          <div className="space-y-9">
             {/* Starters Section */}
             <div>
-              <h2 className="text-3xl font-bold mb-6 text-gray-900">
+              <h2 className="text-3xl font-bold mb-8 text-gray-900">
                 Starters
               </h2>
 

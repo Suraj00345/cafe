@@ -47,11 +47,11 @@ const About = () => {
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
+      rootMargin: "0px 0px -50px 0px",
     };
 
     const observerCallback = (entries) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.target === storyRef.current && entry.isIntersecting) {
           setIsStoryVisible(true);
         }
@@ -61,7 +61,10 @@ const About = () => {
       });
     };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+    const observer = new IntersectionObserver(
+      observerCallback,
+      observerOptions
+    );
 
     if (storyRef.current) {
       observer.observe(storyRef.current);
@@ -88,7 +91,7 @@ const About = () => {
         </div>
 
         {/* Overlay for better text readability */}
-        <div className="absolute  left-0 right-0 z-20">
+        <div className="absolute  left-0 right-0 z-100">
           <Navbar />
         </div>
 
@@ -109,51 +112,51 @@ const About = () => {
       </div>
 
       {/* About Our Story Section */}
-      <div className="bg-amber-50 px-4 sm:px-6 lg:px-8 py-10 lg:py-20">
+      <div className="bg-amber-50 px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-12 lg:py-16 xl:py-20">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
+          <div className="flex flex-col xl:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
             {/* Images */}
-            <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 w-full lg:w-auto">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 w-full xl:w-auto order-2 xl:order-1">
               <img
-                className="w-full sm:w-64 md:w-72 lg:w-80 h-64 sm:h-80 md:h-96 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+                className="w-full sm:w-1/2 xl:w-64 2xl:w-80 h-48 sm:h-64 md:h-72 lg:h-80 xl:h-96 2xl:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
                 src={`${Food1}`}
                 alt="Food Image"
               />
               <img
-                className="w-full sm:w-64 md:w-72 lg:w-80 h-64 sm:h-80 md:h-96 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+                className="w-full sm:w-1/2 xl:w-64 2xl:w-80 h-48 sm:h-64 md:h-72 lg:h-80 xl:h-96 2xl:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
                 src={`${Res1}`}
-                alt="Food Image"
+                alt="Restaurant Image"
               />
             </div>
 
             {/* Card with Animation */}
-            <div 
+            <div
               ref={storyRef}
-              className={`w-full max-w-sm lg:relative lg:right-15 transform transition-all duration-1000 ease-out ${
-                isStoryVisible 
-                  ? 'translate-y-0 opacity-100' 
-                  : 'translate-y-20 opacity-0'
+              className={`w-full max-w-md lg:-ml-15 mt-10 xl:max-w-sm order-1 xl:order-2 transform transition-all duration-1000 ease-out ${
+                isStoryVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-20 opacity-0"
               }`}
             >
-              <div className="bg-white rounded-lg shadow-lg p-12 sm:p-8 lg:p-13 text-center">
+              <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 lg:p-10 xl:p-12 text-center">
                 {/* Header */}
-                <div className="mb-6 lg:mb-8">
+                <div className="mb-4 sm:mb-6 lg:mb-8">
                   <h2
-                    className="text-2xl sm:text-3xl lg:text-4xl font-light text-amber-600 mb-2"
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-amber-600 mb-1 sm:mb-2"
                     style={{ fontFamily: "Kristi,cursive" }}
                   >
                     About
                   </h2>
-                  <h1 className="text-3xl sm:text-4xl lg:text-3xl xl:text-5xl font-bold text-gray-900 tracking-tight">
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-4xl 2xl:text-5xl font-bold text-gray-900 tracking-tight">
                     OUR STORY
                   </h1>
                 </div>
 
                 {/* Decorative Element */}
-                <div className="mb-6 lg:mb-8">
+                <div className="mb-4 sm:mb-6 lg:mb-8">
                   <div className="flex justify-center">
                     <img
-                      className="opacity-20 h-5 sm:h-6 lg:h-7"
+                      className="opacity-20 h-4 sm:h-5 md:h-6 lg:h-7"
                       src={`${Flower2}`}
                       alt=""
                     />
@@ -161,14 +164,14 @@ const About = () => {
                 </div>
 
                 {/* Content */}
-                <p className="text-gray-700 leading-relaxed font-medium text-sm sm:text-base mb-4 lg:mb-8">
+                <p className="text-gray-700 leading-relaxed font-medium text-sm sm:text-base lg:text-base mb-4 sm:mb-6 lg:mb-8 px-2 sm:px-0">
                   Sed ut perspiciatis unde omnis iste natus error sit voluptatem
                   accusantium doloremque laudantium, totam rem aperiam, eaque
                   ipsa quae ab illo inventore veritatis et quasi.
                 </p>
 
                 {/* Call to Action */}
-                <button className="text-amber-500 hover:text-amber-700 font-bold text-lg sm:text-xl lg:text-2xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200">
+                <button className="text-amber-500 hover:text-amber-700 font-bold text-base sm:text-lg md:text-xl lg:text-2xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200">
                   Learn More
                 </button>
               </div>
@@ -177,65 +180,75 @@ const About = () => {
         </div>
       </div>
 
-      {/* visit our restaurant */}
-      <div className="flex flex-col lg:flex-row justify-center items-center bg-amber-50 gap-5 lg:gap-10 -mt-5 pb-10 lg:pb-18 px-4 lg:px-15">
-        {/* Card with Animation */}
-        <div 
-          ref={visitRef}
-          className={`mb-10 lg:mb-0 lg:relative lg:left-15 lg:-top-4 z-50 w-full max-w-sm lg:max-w-sm lg:ml-20 transform transition-all duration-1000 ease-out ${
-            isVisitVisible 
-              ? 'translate-y-0 opacity-100' 
-              : 'translate-y-20 opacity-0'
-          }`}
-        >
-          <div className="mx-auto bg-white rounded-lg shadow-lg p-6 sm:p-8 lg:p-10 text-center mt-10 lg:mt-30">
-            {/* Header */}
-            <div className="mb-6 lg:mb-8">
-              <h2
-                className="text-2xl sm:text-3xl lg:text-4xl font-light text-amber-600 mb-2"
-                style={{ fontFamily: "Kristi, cursive" }}
-              >
-                Visit Our
-              </h2>
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tighter">
-                RESTAURANT
-              </h1>
-            </div>
-            
-            {/* Decorative Element */}
-            <div className="mb-6 lg:mb-8">
-              <div className="flex justify-center">
-                <img className="opacity-20 h-5 lg:h-7" src={Flower2} alt="" />
+      {/* Visit Our Restaurant Section */}
+      <div className="bg-amber-50 px-4 sm:px-6 lg:px-8 xl:px-12 py-8 sm:py-12 lg:py-16 xl:py-18">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col xl:flex-row items-center justify-center gap-6 sm:gap-8 lg:gap-10 xl:gap-12">
+            {/* Card with Animation */}
+            <div
+              ref={visitRef}
+              className={`w-full lg:-mr-15 mt-10 z-50 max-w-md xl:max-w-sm order-1 transform transition-all duration-1000 ease-out ${
+                isVisitVisible
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-20 opacity-0"
+              }`}
+            >
+              <div className="bg-white rounded-lg shadow-lg p-6 sm:p-8 lg:p-10 xl:p-12 text-center">
+                {/* Header */}
+                <div className="mb-4 sm:mb-6 lg:mb-8">
+                  <h2
+                    className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-light text-amber-600 mb-1 sm:mb-2"
+                    style={{ fontFamily: "Kristi, cursive" }}
+                  >
+                    Visit Our
+                  </h2>
+                  <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tighter">
+                    RESTAURANT
+                  </h1>
+                </div>
+
+                {/* Decorative Element */}
+                <div className="mb-4 sm:mb-6 lg:mb-8">
+                  <div className="flex justify-center">
+                    <img
+                      className="opacity-20 h-4 sm:h-5 md:h-6 lg:h-7"
+                      src={Flower2}
+                      alt=""
+                    />
+                  </div>
+                </div>
+
+                {/* Content */}
+                <p className="text-gray-700 leading-relaxed font-medium text-sm sm:text-base lg:text-base mb-4 sm:mb-6 lg:mb-8 px-2 sm:px-0">
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque
+                  ipsa quae ab illo inventore veritatis et quasi.
+                </p>
+
+                {/* Call to Action */}
+                <a
+                  href="/contact_us"
+                  className="text-amber-500 hover:text-amber-700 font-bold text-base sm:text-lg md:text-xl lg:text-xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200 inline-block"
+                >
+                  Get Locations
+                </a>
               </div>
             </div>
-            
-            {/* Content */}
-            <p className="text-gray-700 leading-relaxed font-medium text-sm sm:text-base lg:text-base mb-6 lg:mb-8 px-2 lg:px-0">
-              Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi.
-            </p>
-            
-            {/* Call to Action */}
-            <a
-              href="/contact_us"
-              className="text-amber-500 hover:text-amber-700 font-bold text-lg sm:text-xl lg:text-xl tracking-wide underline decoration-2 underline-offset-8 transition-colors duration-200 inline-block pb-4 lg:pb-15"
-            >
-              Get Locations
-            </a>
+
+            {/* Images */}
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-6 w-full xl:w-auto order-2">
+              <img
+                className="w-full sm:w-1/2 xl:w-64 2xl:w-80 h-48 sm:h-64 md:h-72 lg:h-80 xl:h-96 2xl:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+                src={Food9}
+                alt="Food Image"
+              />
+              <img
+                className="w-full sm:w-1/2 xl:w-64 2xl:w-80 h-48 sm:h-64 md:h-72 lg:h-80 xl:h-96 2xl:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
+                src={Res6}
+                alt="Restaurant Image"
+              />
+            </div>
           </div>
-        </div>
-        
-        {/* Images */}
-        <div className="flex flex-col sm:flex-row mt-0 lg:mt-20 gap-3 sm:gap-5 w-full max-w-2xl lg:max-w-none">
-          <img
-            className="w-full sm:w-60 lg:w-80 h-60 sm:h-80 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
-            src={Food9}
-            alt="Food Image"
-          />
-          <img
-            className="w-full sm:w-60 lg:w-80 h-60 sm:h-80 lg:h-115 rounded-lg transition-transform duration-300 ease-in-out hover:scale-105 object-cover"
-            src={Res6}
-            alt="Restaurant Image"
-          />
         </div>
       </div>
 
@@ -256,9 +269,9 @@ const About = () => {
               TESTIMONIALS
             </h1>
             <p className="pt-4 sm:pt-8 md:pt-12 lg:pt-25 pb-3 sm:pb-4 md:pb-5 text-sm sm:text-base md:text-lg opacity-80 leading-relaxed px-2 sm:px-4 md:px-0">
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br /> 
-              Et dicta possimus, magni  voluptatum molestias explicabo <br /> voluptatibus
-              voluptatem tempora esse libero, cum recusandae.
+              Lorem ipsum dolor sit, amet consectetur adipisicing elit. <br />
+              Et dicta possimus, magni voluptatum molestias explicabo <br />{" "}
+              voluptatibus voluptatem tempora esse libero, cum recusandae.
             </p>
             <div className="flex items-center justify-center opacity-90 gap-2 sm:gap-3 mt-4 sm:mt-6">
               <img

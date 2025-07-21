@@ -54,7 +54,7 @@ const OurService = () => {
         </div>
 
         {/* Overlay for better text readability */}
-        <div className="absolute  left-0 right-0 z-20">
+        <div className="absolute  left-0 right-0 z-100">
           <Navbar />
         </div>
 
@@ -73,12 +73,13 @@ const OurService = () => {
           </div>
         </div>
       </div>
-      {/* food delivery */}
-      <div className="flex flex-col lg:flex-row justify-center items-center bg-gray-50 gap-5 lg:gap-10 -mt-5 pb-10 lg:pb-18 px-4 lg:px-55">
+
+      {/* food delivery - CENTERED */}
+      <div className="relative flex flex-col lg:flex-row justify-center items-center lg:gap-10 pb-10 lg:pb-18 px-4 lg:px-18 max-w-7xl mx-auto">
         {/* Animated Card */}
         <div
           ref={cardRef}
-          className={`mb-10 lg:mb-0 lg:relative lg:left-15 lg:-top-4 z-50 w-full max-w-md lg:max-w-sm transform transition-all duration-1000 ease-out ${
+          className={`mb-10 lg:mb-0 z-50 w-full max-w-md lg:max-w-sm transform transition-all lg:-mr-15 duration-1000 ease-out ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-16 opacity-0"
           }`}
         >
@@ -153,7 +154,7 @@ const OurService = () => {
         </div>
         <div className="text-center mb-8 sm:mb-0 w-full sm:w-auto">
           <h1 className="font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-7xl">
-             <CountUp
+            <CountUp
               from={0}
               to={12}
               separator=","
@@ -250,7 +251,7 @@ const OurService = () => {
           </p>
 
           <a
-            href="/about"
+            href="/contact_us"
             className="underline underline-offset-4 text-amber-500 font-semibold tracking-wider text-sm sm:text-base"
           >
             Contact Us

@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import Food1 from "../../assets/food1.jpg";
 import Food4 from "../../assets/food4.jpg";
 import Food5 from "../../assets/food5.jpg";
 import Food6 from "../../assets/food6.jpg";
@@ -17,11 +16,32 @@ import "../../App.css";
 import VerticalCarousel from "../../Functions/Carosel";
 
 const HeroSection = () => {
+  // Add scroll state for navbar
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isDiscoverVisible, setIsDiscoverVisible] = useState(false);
   const [isVisitVisible, setIsVisitVisible] = useState(false);
   const discoverRef = useRef(null);
   const visitRef = useRef(null);
 
+  // Scroll detection for navbar
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop =
+        window.pageYOffset || document.documentElement.scrollTop;
+      setIsScrolled(scrollTop > 50); // Change navbar background after 50px scroll
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
+    // Check initial scroll position
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  // Intersection Observer for animations
   useEffect(() => {
     const observerOptions = {
       threshold: 0.1,
@@ -65,13 +85,13 @@ const HeroSection = () => {
           <VerticalCarousel />
         </div>
 
-        {/* Overlay for better text readability */}
-        <div className="absolute left-0 right-0 z-20">
-          <Navbar />
+        {/* Navbar with scroll state */}
+        <div className="absolute left-0 right-0 z-100">
+          <Navbar isScrolled={isScrolled} />
         </div>
 
-        {/* Content Overlay */}
-        <div className="relative z-10 flex items-center justify-center h-full px-4">
+        {/* Content Overlay - Add padding-top to prevent content overlap */}
+        <div className="relative z-10 flex items-center justify-center h-full px-4 pt-20 lg:pt-24">
           <div
             className="text-white text-center"
             style={{ fontFamily: "MyCustomFontLato" }}
@@ -95,8 +115,8 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Discover Menus Section */}
-      <div className="bg-amber-50 px-4 sm:px-6 lg:px-8 py-10 lg:py-20">
+      {/* Discover Menus Section - Add padding-top to account for fixed navbar */}
+      <div className="bg-amber-50 px-4 sm:px-6 lg:px-8 py-10 lg:py-20 pt-16 lg:pt-20">
         <div className="max-w-7xl mx-auto">
           <div className="flex flex-col lg:flex-row items-center justify-center gap-8 lg:gap-12">
             {/* Images */}
@@ -116,7 +136,7 @@ const HeroSection = () => {
             {/* Card with Animation */}
             <div
               ref={discoverRef}
-              className={`w-full max-w-sm lg:relative lg:right-15 transform transition-all duration-1000 ease-out ${
+              className={`w-full max-w-sm lg:mt-10 lg:relative lg:right-15 transform transition-all duration-1000 ease-out ${
                 isDiscoverVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-20 opacity-0"
@@ -171,7 +191,7 @@ const HeroSection = () => {
             {/* Card with Animation */}
             <div
               ref={visitRef}
-              className={`w-full max-w-sm lg:max-w-md order-2 lg:order-1 lg:relative lg:left-15 z-50 transform transition-all duration-1000 ease-out ${
+              className={`w-full max-w-sm lg:mt-10 lg:max-w-md order-2 lg:order-1 lg:relative lg:left-15 z-50 transform transition-all duration-1000 ease-out ${
                 isVisitVisible
                   ? "translate-y-0 opacity-100"
                   : "translate-y-20 opacity-0"
@@ -280,12 +300,12 @@ const HeroSection = () => {
         <div className="relative z-10 flex items-center justify-center h-full px-4">
           <div className="text-center text-white">
             <h2
-              className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light mb-2 text-amber-400"
+              className="text-4xl md:text-4xl lg:text-6xl font-light mb-2 text-amber-400"
               style={{ fontFamily: "MyCustomFontLato" }}
             >
               Our
             </h2>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
+            <h1 className="text-4xl  md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight">
               MENUS
             </h1>
           </div>
