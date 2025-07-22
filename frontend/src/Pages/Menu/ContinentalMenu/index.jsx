@@ -71,35 +71,39 @@ const Continental = () => {
         </div>
       </div>
       {/* signature dish section */}
-      <div className="items-center my-13">
-        <h1 className="font-bold text-4xl text-center underline underline-offset-4 pb-5">
-          Signature Dishes
-        </h1>
-        <div className="max-w-150 mx-auto p-4">
-          <ul className="space-y-4">
-            {dishes.map((dish, index) => (
-              <li
-                key={index}
-                className="flex justify-between items-center border-b pb-2"
-              >
-                <img
-                  src={`${dish.img}`}
-                  className="h-15 w-15 rounded-full"
-                  alt="Dish Image"
-                />
-                <div className="px-3">
-                  <h2 className="text-lg font-semibold">{dish.name}</h2>
-                  <p className="text-sm text-gray-600">
-                    {dish.description}{" "}
-                    ..............................................................................................
-                  </p>
-                </div>
-                <span className="font-bold">{dish.price}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </div>
+      <div className="items-center my-8 sm:my-13 px-4 sm:px-0">
+  <h1 className="font-bold text-2xl sm:text-3xl lg:text-4xl text-center underline underline-offset-4 pb-3 sm:pb-5">
+    Signature Dishes
+  </h1>
+  <div className="max-w-4xl lg:max-w-6xl mx-auto p-2 sm:p-4">
+    <ul className="space-y-3 sm:space-y-4">
+      {dishes.map((dish, index) => (
+        <li
+          key={index}
+          className="flex flex-col sm:flex-row justify-between items-start sm:items-center border-b pb-3 sm:pb-2 gap-3 sm:gap-0"
+        >
+          <img
+            src={`${dish.img}`}
+            className="h-12 w-12 sm:h-15 sm:w-15 rounded-full mx-auto sm:mx-0 flex-shrink-0"
+            alt="Dish Image"
+          />
+          <div className="px-0 sm:px-3 text-center sm:text-left flex-grow">
+            <h2 className="text-base sm:text-lg font-semibold">{dish.name}</h2>
+            <p className="text-xs sm:text-sm text-gray-600">
+              {dish.description}{" "}
+              <span className="hidden sm:inline">
+                ..............................................................................................
+              </span>
+            </p>
+          </div>
+          <span className="font-bold text-base sm:text-lg text-center sm:text-right flex-shrink-0">
+            {dish.price}
+          </span>
+        </li>
+      ))}
+    </ul>
+  </div>
+</div>
       {/* chef special */}
       <div className="relative w-full h-96 overflow-hidden">
         {/* Background Image */}
